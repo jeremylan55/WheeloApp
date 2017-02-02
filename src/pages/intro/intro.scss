@@ -1,0 +1,10 @@
+page-intro {
+  ion-slides {
+    height: auto;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: color($colors,primary);
+  }
+
+}
