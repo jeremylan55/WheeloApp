@@ -1,21 +1,39 @@
 <ion-slides [pager]="true">
+
   <ion-slide>
+    <button ion-button clear id="skipButton" class="rightUI absolute" (click)="skip()">Skip</button>
     <img src="assets/intro/illu1.svg" />
     <ion-row class="centreUI">
       <ion-col class="Header3 dark centre">
         <div class="Header3 dark centre">Welcome to Wheelo!</div>
-        <div class="caption dark centre">Find your carpools quickly and easily from the facebook page.
-Swipe to learn more.</div>
+        <div class="caption dark centre">Find your carpools quickly and easily from the facebook page.<br>Swipe to learn more.</div>
       </ion-col>
     </ion-row>
   </ion-slide>
 
   <ion-slide>
     <img src="assets/intro/illu2.svg" />
+    <ion-row class="centreUI">
+      <ion-col class="Header3 dark centre">
+        <div class="Header3 dark centre">Powerful filters & recommendations</div>
+        <div class="caption dark centre">Use our filter options to find exactly what you need. Get the carpool you need without looking for it.</div>
+      </ion-col>
+    </ion-row>
   </ion-slide>
 
   <ion-slide>
     <img src="assets/intro/illu3.svg" />
+    <ion-row class="centreUI">
+      <ion-col class="Header3 dark centre">
+        <div class="Header3 dark centre">Chat with your driver</div>
+        <div class="caption dark centre">Interested in a carpool? Contact the driver in one tap in Wheelo!</div>
+      </ion-col>
+    </ion-row>
+
+    <div id="action" class="fullWidth">
+      <button ion-button class="FAB facebook medWidth centreUI" color="primary" (click)="login()">Login with Facebook</button>
+      <!-- <div class="caption dark centre">Want to see how it works?<a (click)="tryDemo()">Try demo</a></div> -->
+    </div>
+
   </ion-slide>
 </ion-slides>
-<button ion-button class="FAB facebook medWidth centreUI" color="primary" (click)="goToHome()">Login with Facebook</button>

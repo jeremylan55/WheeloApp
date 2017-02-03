@@ -1,10 +1,50 @@
 page-intro {
-  ion-slides {
-    height: auto;
+  ion-slide {
+    position: relative;
+    bottom: 32px;
   }
 
-  .swiper-pagination-bullet-active {
-    background: color($colors,primary);
+  .swiper-pagination-bullet {
+    background: color($colors,dark);
   }
 
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: color($colors,dark);
+    opacity: 0.48;
+  }
+
+  .Header3 {
+    margin-bottom: 8px;
+  }
+
+  img {
+    margin-bottom: 6px;
+  }
+
+  ion-col>.caption {
+    margin-bottom: 0;
+    height: 51px;
+  }
+  ion-row {
+    max-width: 301px;
+  }
+  button.facebook {
+    margin-bottom: 16px;
+  }
+
+  #action{
+    position: absolute;
+    // bottom: 0px;
+  }
+  #action>.caption {
+    margin-bottom: 0px;
+  }
+  #action>.caption>a {
+    margin-left: 5px;
+  }
+
+  #skipButton {
+    top: 32px;
+    right: 8px;
+  }
 }

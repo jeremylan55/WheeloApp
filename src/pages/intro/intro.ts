@@ -22,8 +22,11 @@ export class IntroPage {
     console.log('ionViewDidLoad IntroPage');
   }
 
-  goToHome(){
+  login(){
     this.navCtrl.setRoot(TabsPage);
   }
 
+  // skip() {
+  //   this.slides.slideTo(2);
+  // }
 }

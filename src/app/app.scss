@@ -8,6 +8,12 @@
     src:url('/assets/fonts/Lato-Regular.ttf') format('truetype'); /* Safari, Android, iOS */
 }
 
+.ios.platform-mobile.platform-ios.platform-mobileweb {
+  //margin-top: 20px;
+}
+.ion-page {
+  background: #fff !important;
+}
 .Header3.dark {
   font-family: Lato-Bold;
   font-size: 18px;
@@ -22,8 +28,12 @@ button {
   font-size: 14px !important;
   letter-spacing: 0px !important;
 }
-button.medWidth {
+.medWidth {
   width: 291px;
+}
+
+.fullWidth {
+  width: 100%;
 }
 button.FAB {
   box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.24) !important;
@@ -40,13 +50,26 @@ button.facebook {
   font-size: 14px;
   color: #334365;
   letter-spacing: 0px;
+  line-height: 17px
 }
 
 .centreUI {
   margin: auto;
   display: block;
 }
+.rightUI {
+  position: fixed;
+  right: 0px;
+}
 
+.bottomUI {
+  position: fixed;
+  bottom: 24px;
+}
+
+.absolute {
+  position: absolute;
+}
 .centre {
   text-align: center;
 }
