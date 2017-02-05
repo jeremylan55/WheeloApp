@@ -37,6 +37,15 @@ ion-toolbar.light>.toolbar-background, ion-navbar.light>.toolbar-background {
   line-height: 17px;
 }
 
+.placeholder.dark {
+  font-family: Lato-Regular !important;
+  font-size: 16px !important;
+  color: #8E8E93 !important;
+  letter-spacing: 0px !important;
+}
+.left {
+  text-align: left !important;
+}
 .centre {
   text-align: center;
 }
@@ -50,6 +59,7 @@ button {
   border-radius: 4px !important;
   font-size: 14px !important;
   letter-spacing: 0px !important;
+  border-radius: 4px !important;
 }
 button.FAB {
   box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.24) !important;
@@ -67,7 +77,11 @@ button.facebook {
 }
 
 .fullWidth {
-  width: 100%;
+  width: auto;
+  margin-left: auto ;
+  margin-right: auto ;
+  left: 8px;
+  right: 8px;
 }
 
 .centreUI {
@@ -97,24 +111,24 @@ button.facebook {
 }
 
 .ion-md-icon_search, .ion-ios-icon_search-outline {
-  content: url('../assets/icons/icon_search_grey.svg');
+  content: url('../assets/icons/icon_search_grey_36.svg');
 }
 .tab-button[aria-selected=true]>.ion-md-icon_search, .ion-ios-icon_search {
-  content: url('../assets/icons/icon_search_dark.svg') !important;
+  content: url('../assets/icons/icon_search_dark_36.svg') !important;
 }
 
 .ion-md-icon_message, .ion-ios-icon_message-outline {
-  content: url('../assets/icons/icon_message_grey.svg');
+  content: url('../assets/icons/icon_message_grey_36.svg');
 }
 .tab-button[aria-selected=true]>.ion-md-icon_message, .ion-ios-icon_message {
-  content: url('../assets/icons/icon_message_dark.svg') !important;
+  content: url('../assets/icons/icon_message_dark_36.svg') !important;
 }
 
 .ion-md-icon_cog, .ion-ios-icon_cog-outline {
-  content: url('../assets/icons/icon_cog_grey.svg');
+  content: url('../assets/icons/icon_cog_grey_36.svg');
 }
 .tab-button[aria-selected=true]>.ion-md-icon_cog, .ion-ios-icon_cog {
-  content: url('../assets/icons/icon_cog_dark.svg') !important;
+  content: url('../assets/icons/icon_cog_dark_36.svg') !important;
 }
 
 // App Global Sass

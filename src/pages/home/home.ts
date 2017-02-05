@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {NativePageTransitions, NativeTransitionOptions} from 'ionic-native';
+import {StatusBar} from 'ionic-native';
 /*
   Generated class for the Home page.
 
@@ -30,8 +31,7 @@ export class HomePage {
       .catch((err) => {
 
       });
-
-    console.log('ionViewDidLoad HomePage');
+    StatusBar.styleLightContent();
   }
 
 }

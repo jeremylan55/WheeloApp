@@ -1,5 +1,8 @@
 page-intro {
-
+  ion-slide {
+    position: relative;
+    bottom: 24px;
+  }
   .swiper-pagination-bullet {
     background: color($colors,dark);
   }
