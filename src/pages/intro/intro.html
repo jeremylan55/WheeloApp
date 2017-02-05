@@ -7,8 +7,8 @@
 </ion-header>
 
 
-<ion-slides [pager]="true">
-  <ion-slide (ionSlideDidChange)="notFistSlide()">
+<ion-slides [pager]="true" (ionSlideDidChange)="hideSkip()">
+  <ion-slide>
     <img src="assets/intro/illu1.svg" />
     <ion-row class="centreUI">
       <ion-col class="Header3 dark centre">
