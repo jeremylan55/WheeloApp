@@ -26,7 +26,11 @@ export class IntroPage {
     this.navCtrl.setRoot(TabsPage);
   }
 
-  // skip() {
-  //   this.slides.slideTo(2);
-  // }
+  skip() {
+    //this.slides.slideTo(2);
+  }
+  notFistSlide() {
+    //jquery('#skip').hide();
+  }
+
 }

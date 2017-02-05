@@ -1,7 +1,14 @@
-<ion-slides [pager]="true">
+<ion-header no-border>
+  <ion-toolbar class="toolbar light" no-border-top>
+    <ion-buttons end>
+      <button ion-button end clear color="primary" id="skip" (click)="skip()">Skip</button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
-  <ion-slide>
-    <button ion-button clear id="skipButton" class="rightUI absolute" (click)="skip()">Skip</button>
+
+<ion-slides [pager]="true">
+  <ion-slide (ionSlideDidChange)="notFistSlide()">
     <img src="assets/intro/illu1.svg" />
     <ion-row class="centreUI">
       <ion-col class="Header3 dark centre">

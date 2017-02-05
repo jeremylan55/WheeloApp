@@ -74,5 +74,11 @@ $colors: (
 // Fonts
 // --------------------------------------------------
 
-@import "Roboto";
-@import "noto-sans";
+@font-face {
+    font-family: 'Lato-Bold';
+    src:url('../assets/fonts/Lato-Bold.ttf') format('truetype'); /* Safari, Android, iOS */
+}
+@font-face {
+    font-family: 'Lato-Regular';
+    src:url('../assets/fonts/Lato-Regular.ttf') format('truetype'); /* Safari, Android, iOS */
+}

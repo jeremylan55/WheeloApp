@@ -20,9 +20,11 @@ import { IntroPage} from '../pages/intro/intro';
     IntroPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      statusBarPadding: true
+    })
   ],
-  bootstrap: [IonicApp],
+  bootstrap: [IonicApp ],
   entryComponents: [
     MyApp,
     PostPage,
