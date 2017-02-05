@@ -1,11 +1,25 @@
 // http://ionicframework.com/docs/v2/theming/
 @import "ionic.globals";
-ion-toolbar.light>.toolbar-background {
+ion-toolbar.light>.toolbar-background, ion-navbar.light>.toolbar-background {
   background-color: #fff;
 }
+// ====================================================Headers and Footers==================================================//
+.tabbar {
+  border-top: 1px solid #EFEFEF !important;
+  background-color: #fff !important;
+}
+.tabs-ios .tab-button.icon-only {
+  min-height: 51px;
+}
+.tab-button.icon-only {
+  min-height: 51px;
+}
+
 .ion-page {
   background: #fff !important;
 }
+// =====================================================Typrography=================================================//
+
 .Header3.dark {
   font-family: Lato-Bold;
   font-size: 18px;
@@ -13,29 +27,7 @@ ion-toolbar.light>.toolbar-background {
   letter-spacing: 0px;
   line-height: 22px;
 }
-button {
-  text-transform: uppercase !important;
-  font-family: Lato-Bold !important;
-  border-radius: 4px !important;
-  font-size: 14px !important;
-  letter-spacing: 0px !important;
-}
-.medWidth {
-  width: 291px;
-}
 
-.fullWidth {
-  width: 100%;
-}
-button.FAB {
-  box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.24) !important;
-}
-
-button.facebook {
-  background-image: url('/assets/icons/facebook_light.svg') !important;
-  background-repeat: no-repeat;
-  background-position: 16px bottom;
-}
 .caption.dark {
   opacity: 0.63;
   font-family: Lato-Regular;
@@ -43,6 +35,39 @@ button.facebook {
   color: #334365;
   letter-spacing: 0px;
   line-height: 17px;
+}
+
+.centre {
+  text-align: center;
+}
+
+
+// ==================================================Buttons====================================================//
+
+button {
+  text-transform: uppercase !important;
+  font-family: Lato-Bold !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+  letter-spacing: 0px !important;
+}
+button.FAB {
+  box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.24) !important;
+}
+
+button.facebook {
+  background-image: url('../assets/icons/facebook_light.svg') !important;
+  background-repeat: no-repeat;
+  background-position: 16px bottom;
+}
+
+// ==================================================Sizing and Positining====================================================//
+.medWidth {
+  width: 291px;
+}
+
+.fullWidth {
+  width: 100%;
 }
 
 .centreUI {
@@ -62,10 +87,35 @@ button.facebook {
 .absolute {
   position: absolute;
 }
-.centre {
-  text-align: center;
+
+// ==================================================Iconography====================================================//
+
+.tab-button-icon {
+  width: 32px !important;
+  height: 32px !important;
+  padding: 4px 4px 2px !important;
 }
 
+.ion-md-icon_search, .ion-ios-icon_search-outline {
+  content: url('../assets/icons/icon_search_grey.svg');
+}
+.tab-button[aria-selected=true]>.ion-md-icon_search, .ion-ios-icon_search {
+  content: url('../assets/icons/icon_search_dark.svg') !important;
+}
+
+.ion-md-icon_message, .ion-ios-icon_message-outline {
+  content: url('../assets/icons/icon_message_grey.svg');
+}
+.tab-button[aria-selected=true]>.ion-md-icon_message, .ion-ios-icon_message {
+  content: url('../assets/icons/icon_message_dark.svg') !important;
+}
+
+.ion-md-icon_cog, .ion-ios-icon_cog-outline {
+  content: url('../assets/icons/icon_cog_grey.svg');
+}
+.tab-button[aria-selected=true]>.ion-md-icon_cog, .ion-ios-icon_cog {
+  content: url('../assets/icons/icon_cog_dark.svg') !important;
+}
 
 // App Global Sass
 // --------------------------------------------------

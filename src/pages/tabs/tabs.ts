@@ -12,9 +12,8 @@ export class TabsPage {
   // this tells the tabs component which Pages
   // should be each tab's root Page
   tab1Root: any = HomePage;
-  tab2Root: any = PostPage;
-  tab3Root: any = ChatsPage;
-  tab4Root: any = SettingsPage;
+  tab2Root: any = ChatsPage;
+  tab3Root: any = SettingsPage;
 
   constructor() {
 
