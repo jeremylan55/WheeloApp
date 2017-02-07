@@ -23,13 +23,13 @@ export class MyApp {
 
       this.storage.get('introShown').then((result) => {
 
-        if(result){ // force showing of intro everytime app opens.
-          this.rootPage = TabsPage;
-        } else {
+        // if(result){ // force showing of intro everytime app opens.
+        //   this.rootPage = TabsPage;
+        // } else {
           this.rootPage = IntroPage;
-          this.storage.set('introShown', false);
+          this.storage.set('introShown', true);
           this.storage.clear();
-        }
+        //}
 
         this.loader.dismiss();
 
