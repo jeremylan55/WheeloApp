@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController,Slides } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { ViewChild } from '@angular/core';
-import jQuery from "jquery";
+import jq from "jquery";
 
 @Component({
   selector: 'page-intro',
@@ -36,10 +36,10 @@ export class IntroPage {
     console.log('Slide changed');
     let isFirst = this.slides.isBeginning();
     if(isFirst) {
-      jQuery('#skip').fadeIn(150);
+      jq('#skip').fadeIn(150);
     }
     else {
-      jQuery('#skip').fadeOut(150);
+      jq('#skip').fadeOut(150);
     }
 
   }
