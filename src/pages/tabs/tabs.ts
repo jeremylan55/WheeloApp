@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
 import { HomePage } from '../home/home';
-import { PostPage } from '../post/post';
 import { ChatsPage } from '../chats/chats';
 import { SettingsPage} from '../settings/settings'
 
