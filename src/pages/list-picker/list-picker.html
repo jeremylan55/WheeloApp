@@ -6,14 +6,20 @@
 -->
 <ion-header no-border>
   <ion-toolbar class="light" no-border-top>
-    <ion-buttons start>
-      <button ion-button start clear class="icon sq24 cross" (click)="closeListPicker()">Close</button>
+    <ion-buttons>
+      <button ion-button start clear class="icon sq24 icon_cross" (click)="closeListPicker()"></button>
     </ion-buttons>
-
   </ion-toolbar>
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <ion-list no-lines style="margin-bottom: 0px;">
+    <button ion-item *ngFor="let item of items" class="cell border no-arrow inset64 tall">{{item}}</button>
+    <div style="padding-left:64px;">
+      <ion-item  class="cell tall">
+        <ion-input type="text" placeholder="Enter Location..."></ion-input>
+      </ion-item>
+    </div>
+  </ion-list>
 </ion-content>

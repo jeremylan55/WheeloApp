@@ -13,7 +13,9 @@ import { NavController, NavParams, ViewController } from 'ionic-angular';
 })
 export class ListPickerPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public view: ViewController) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public view: ViewController) {
+  }
+  items = this.navParams.get('userParams');
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListPickerPage');

@@ -153,7 +153,47 @@ button.icon {
   height: 36px;
 }
 .icon.icon_cross {
-  content: url('../assets/icons/icon_cog_dark.svg') !important;
+  background: url('../assets/icons/icon_cross_dark.svg') !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+}
+
+// ==================================================Cells====================================================//
+.cell {
+  background: #ffffff;
+  border-radius: 0px !important;
+  padding: 0px;
+}
+.cell>.item-inner {
+  padding-right: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+.cell.border>.item-inner {
+  border-bottom: 0.5px solid #C1C1C1 !important;
+}
+.cell.no-arrow>.item-inner {
+  background-image: none !important;
+}
+.cell.tall>.item-inner {
+  padding-top: 24px !important;
+  padding-bottom: 23px !important;
+}
+.cell.inset64{
+  padding-left: 64px !important;
+}
+.cell.inset64>.item-inner{
+  min-height: 0px;
+}
+.cell.inset64>.item-inner{
+  min-height: 0px;
+}
+.cell>.item-inner>.input-wrapper>ion-input>.text-input{
+  margin: 0px !important;
+}
+
+ion-label{
+  margin: 0px !important;
 }
 
 // App Global Sass

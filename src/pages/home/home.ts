@@ -3,7 +3,7 @@ import { NavController, NavParams, ModalController} from 'ionic-angular';
 import {NativePageTransitions, NativeTransitionOptions, Facebook, StatusBar} from 'ionic-native';
 import {RideSharePost} from '../../app/models/rideSharePost';
 import { ListPickerPage } from '../list-picker/list-picker';
-
+let locations = ["toronto","markham", "scarborough", "mississauga", "york", "brampton", "richmond hill", "montreal"];
 /*
   Generated class for the Home page.
 
@@ -108,7 +108,7 @@ export class HomePage {
 	}
 
   openListPicker() {
-    let listPicker = this.modalCtrl.create(ListPickerPage);
+    let listPicker = this.modalCtrl.create(ListPickerPage, {userParams:locations});
     listPicker.present();
   }
 
