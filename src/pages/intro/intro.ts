@@ -39,7 +39,7 @@ export class IntroPage {
 			// Get name
 			Facebook.api('/me?fields=name', params)
 			.then(function(user){
-				user.picture = 'https://graph.facebook.com/" + userId + "/picture?type=large';
+				user.picture = 'https://graph.facebook.com/' + userId + '/picture?type=large';
 				NativeStorage.setItem('user',
 				{
 					name: user.name,
