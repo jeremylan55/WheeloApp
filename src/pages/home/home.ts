@@ -106,7 +106,8 @@ export class HomePage {
 		// Update the latest indexLoaded from curRawPosts
 		this.indexLoaded = (env.maxNumberLoadedPosts + this.indexLoaded >= env.curRawPosts.length) ? env.curRawPosts.length - 1 : env.maxNumberLoadedPosts + this.indexLoaded;
 	}
-
+ // Opens list picker and fill list using array "locations".
+ // Call openListPicker()
   openListPicker() {
     let listPicker = this.modalCtrl.create(ListPickerPage, {userParams:locations});
     listPicker.present();
