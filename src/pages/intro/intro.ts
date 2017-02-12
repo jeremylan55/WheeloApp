@@ -35,7 +35,7 @@ export class IntroPage {
 		.then(function(response){
 			let userId = response.authResponse.userID;
 			let params = new Array();
-
+			let actoken = response.authResponse.accessToken;
 			// Get name
 			Facebook.api('/me?fields=name', params)
 			.then(function(user){
@@ -44,7 +44,8 @@ export class IntroPage {
 				{
 					name: user.name,
 					picture: user.picture,
-					userID: userId
+					userID: userId,
+					accessToken: actoken
 				})
 				.then(function(){
 					nav.setRoot(TabsPage);
