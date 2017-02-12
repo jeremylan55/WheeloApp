@@ -107,7 +107,7 @@ export class HomePage {
 		this.indexLoaded = (env.maxNumberLoadedPosts + this.indexLoaded >= env.curRawPosts.length) ? env.curRawPosts.length - 1 : env.maxNumberLoadedPosts + this.indexLoaded;
 	}
 
-  showListPicker() {
+  openListPicker() {
     let listPicker = this.modalCtrl.create(ListPickerPage);
     listPicker.present();
   }

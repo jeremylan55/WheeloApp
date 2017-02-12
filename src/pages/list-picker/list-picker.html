@@ -6,9 +6,10 @@
 -->
 <ion-header no-border>
   <ion-toolbar class="light" no-border-top>
-    <div id="search-container">
-      <button ion-button color="light" id="search" class="FAB placeholder dark left" (click)="showListPicker()">Where to</button>
-    </div>
+    <ion-buttons start>
+      <button ion-button start clear class="icon sq24 cross" (click)="closeListPicker()">Close</button>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 

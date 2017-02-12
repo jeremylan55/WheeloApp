@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
-    <title>icon_money</title>
+    <title>icon_money_dark</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="icon_money">
-            <g transform="translate(12.000000, 12.000000) scale(-1, -1) translate(-12.000000, -12.000000) ">
+        <g id="icon_money_dark">
+            <g id="icon_money" transform="translate(12.000000, 12.000000) scale(-1, -1) translate(-12.000000, -12.000000) ">
                 <g id="icon_chevronup" opacity="0.719999969" fill="#D8D8D8">
                     <rect id="Rectangle" opacity="0" x="0" y="0" width="24" height="24"></rect>
                 </g>

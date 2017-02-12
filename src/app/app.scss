@@ -77,6 +77,11 @@ button.facebook {
   background-repeat: no-repeat;
   background-position: 16px bottom;
 }
+button.icon {
+  width: 36px !important;
+  height: 36px !important;
+}
+
 
 // ==================================================Sizing and Positining====================================================//
 .medWidth {
@@ -110,7 +115,7 @@ button.facebook {
 }
 
 // ==================================================Iconography====================================================//
-
+// ***********************************************Tabs*************************************************//
 .tab-button-icon {
   width: 32px !important;
   height: 32px !important;
@@ -118,24 +123,37 @@ button.facebook {
 }
 
 .ion-md-icon_search, .ion-ios-icon_search-outline {
-  content: url('../assets/icons/icon_search_grey_36.svg');
+  content: url('../assets/icons/tabs/icon_search_grey_36.svg');
 }
 .tab-button[aria-selected=true]>.ion-md-icon_search, .ion-ios-icon_search {
-  content: url('../assets/icons/icon_search_dark_36.svg') !important;
+  content: url('../assets/icons/tabs/icon_search_dark_36.svg') !important;
 }
 
 .ion-md-icon_message, .ion-ios-icon_message-outline {
-  content: url('../assets/icons/icon_message_grey_36.svg');
+  content: url('../assets/icons/tabs/icon_message_grey_36.svg');
 }
 .tab-button[aria-selected=true]>.ion-md-icon_message, .ion-ios-icon_message {
-  content: url('../assets/icons/icon_message_dark_36.svg') !important;
+  content: url('../assets/icons/tabs/icon_message_dark_36.svg') !important;
 }
 
 .ion-md-icon_cog, .ion-ios-icon_cog-outline {
-  content: url('../assets/icons/icon_cog_grey_36.svg');
+  content: url('../assets/icons/tabs/icon_cog_grey_36.svg');
 }
 .tab-button[aria-selected=true]>.ion-md-icon_cog, .ion-ios-icon_cog {
-  content: url('../assets/icons/icon_cog_dark_36.svg') !important;
+  content: url('../assets/icons/tabs/icon_cog_dark_36.svg') !important;
+}
+
+// ***********************************************General*************************************************//
+.icon.sq24 {
+  width: 24px;
+  height: 24px;
+}
+.icon.sq36 {
+  width: 36px;
+  height: 36px;
+}
+.icon.icon_cross {
+  content: url('../assets/icons/icon_cog_dark.svg') !important;
 }
 
 // App Global Sass
