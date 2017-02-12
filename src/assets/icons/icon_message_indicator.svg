@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="37px" height="24px" viewBox="0 0 37 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_message_indicator</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon_message_indicator">
+            <g>
+                <rect id="Rectangle" fill-opacity="0" fill="#D8D8D8" x="0" y="0" width="37" height="24"></rect>
+                <path d="M26.0926824,20.8434467 C25.7990599,20.8709753 25.5015079,20.8850414 25.2006531,20.8850414 C23.8258209,20.8850414 13.8173358,20.8850414 12.4425036,20.8850414 C7.22755482,20.8850414 3.00000569,16.6574922 3,11.4425605 C3.00000569,6.2275719 7.22755482,2 12.4425036,2 L25.2006531,2 C30.4155848,2 34.6431567,6.2275719 34.6431567,11.4425036 C34.6431567,14.9953588 32.6810225,18.0898758 29.781244,19.701565 L32.3843818,22.304737 C31.7438337,22.9453135 30.8750391,23.3051776 29.9691715,23.3051719 C29.0633039,23.3051663 28.1945093,22.9453135 27.5539612,22.3047597 L26.0926824,20.8434467 Z" id="Page-1" fill="#FFFFFF"></path>
+                <text id="99+" font-family="Lato-Regular, Lato" font-size="14" font-weight="normal" line-spacing="16" fill="#78BDC2">
+                    <tspan x="7" y="17">99+</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

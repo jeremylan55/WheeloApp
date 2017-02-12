@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams} from 'ionic-angular';
-import {NativePageTransitions, NativeTransitionOptions, Facebook} from 'ionic-native';
-import {StatusBar} from 'ionic-native';
+import { NavController, NavParams, ModalController} from 'ionic-angular';
+import {NativePageTransitions, NativeTransitionOptions, Facebook, StatusBar} from 'ionic-native';
 import {RideSharePost} from '../../app/models/rideSharePost';
+import { ListPickerPage } from '../list-picker/list-picker';
 
 /*
   Generated class for the Home page.
@@ -21,8 +21,7 @@ export class HomePage {
 	indexLoaded: number; // The highest index loaded from curRawPosts
 	displayedPosts: any; // Posts that ahve been displayed since page last loaded
 	maxNumberLoadedPosts: number = 5; // Maximum number of posts that get loaded at a single time
-
-  	constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {}
 
 	ionViewDidLoad() {
 		let options: NativeTransitionOptions = {
@@ -65,7 +64,7 @@ export class HomePage {
 
 	// Loads the next 5 posts from this.curRawPosts to the screen from the given index in this.curRawPosts
 	// Call this from loadRideShareFeed()
-	// Call this after scrolling 
+	// Call this after scrolling
 	lazyLoadPosts(index) {
 		let env = this;
 		let lst = env.curRawPosts;
@@ -107,5 +106,10 @@ export class HomePage {
 		// Update the latest indexLoaded from curRawPosts
 		this.indexLoaded = (env.maxNumberLoadedPosts + this.indexLoaded >= env.curRawPosts.length) ? env.curRawPosts.length - 1 : env.maxNumberLoadedPosts + this.indexLoaded;
 	}
+
+  showListPicker() {
+    let listPicker = this.modalCtrl.create(ListPickerPage);
+    listPicker.present();
+  }
 
 }

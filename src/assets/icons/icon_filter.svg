@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_filter</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon_filter">
+            <g>
+                <rect id="Rectangle" fill-opacity="0" fill="#D8D8D8" x="0" y="0" width="24" height="24"></rect>
+                <path d="M12.9303183,21.5357344 C12.9303183,21.5357344 11.2866933,19.8352031 10.5119902,19.0336922 C10.258537,18.7714734 10.1168808,18.4210594 10.1168808,18.0563813 L10.1168804,13 C10.1168804,13 5.75739797,5.2978125 4.13239641,3.2439375 C4.02087609,3.10298437 3.99977297,2.91070312 4.07806828,2.74889062 C4.15636359,2.587125 4.32027141,2.484375 4.50000422,2.484375 L18.5472089,2.484375 C18.7269277,2.484375 18.8908495,2.587125 18.9691308,2.74889062 C19.047412,2.91070312 19.0263183,3.10298437 18.9148027,3.2439375 C17.289787,5.2978125 12.9303179,13 12.9303179,13 L12.9303183,21.5357344 Z" id="Page-1" fill="#2D3F52"></path>
+            </g>
+        </g>
+    </g>
+</svg>

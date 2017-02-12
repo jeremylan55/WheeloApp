@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_message_dark</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon_message_dark">
+            <g>
+                <rect id="Rectangle" fill-opacity="0" fill="#D8D8D8" x="0" y="0" width="24" height="24"></rect>
+                <path d="M14.4664687,18.7448531 C14.2247812,18.7675125 13.9798594,18.7790906 13.7322187,18.7790906 L10.3035938,18.7790906 C6.01104844,18.7790906 2.53125469,15.2992969 2.53125,11.0067656 L2.53125,11.0067188 C2.53125469,6.7141875 6.01104844,3.234375 10.3035938,3.234375 L13.7322187,3.234375 C18.02475,3.234375 21.5045625,6.7141875 21.5045625,11.0067188 C21.5045625,11.0067188 21.5045625,11.0067188 21.5045625,11.0067656 C21.5045625,13.9311562 19.8894844,16.478325 17.5026094,17.8049437 L19.6453125,19.947675 L19.6453125,19.9476984 C19.1180625,20.4749484 18.4029375,20.7711609 17.6572969,20.7711563 C16.9116563,20.7711516 16.1965312,20.4749484 15.6692812,19.9476937 L14.4664687,18.7448531 Z" id="Page-1" fill="#2D3F52"></path>
+            </g>
+        </g>
+    </g>
+</svg>
