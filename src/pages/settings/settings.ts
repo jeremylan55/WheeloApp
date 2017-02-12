@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import {AlertController} from 'ionic-angular'
 import {Facebook, NativeStorage} from 'ionic-native';
 import {IntroPage} from '../intro/intro';
+import {App} from 'ionic-angular';
 
 /*
   Generated class for the Settings page.
@@ -15,18 +16,35 @@ import {IntroPage} from '../intro/intro';
 	templateUrl: 'settings.html'
 })
 export class SettingsPage {
+	user: any;
+	userReady: boolean = false;
 
-  	constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {}
+  	constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public appCtrl: App) {}
 
   	ionViewDidLoad() {
     		console.log('ionViewDidLoad SettingsPage');
 	}
+
+	ionViewCanEnter(){
+		let env = this;
+		NativeStorage.getItem('user')
+		.then(function (data){
+			env.user = {
+				name: data.name,
+				picture: data.picture
+			};
+			env.userReady = true;
+		}, function(error){
+			console.log(error);
+		});
+	}
+	
 	fbLogout() {
-		var nav = this.navCtrl;
+		var env = this;
 		Facebook.logout()
 		.then(function(response){
-			NativeStorage.remove('user')
-			nav.setRoot(IntroPage)
+			NativeStorage.remove('user');
+			env.appCtrl.getRootNav().setRoot(IntroPage);
 		}, function(error){
 			console.log(error)
 		});
