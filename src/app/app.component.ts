@@ -15,11 +15,11 @@ export class MyApp {
   loader: any;
 
   constructor(public platform: Platform, public loadingCtrl: LoadingController, public storage: Storage) {
-    this.presentLoading();
+    // this.presentLoading();
 	let env = this;
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need. 
+      // Here you can do any higher level native things you might need.
 	NativeStorage.getItem('user')
 	.then(function(data){
 		// User has previsouly logged in
@@ -29,22 +29,22 @@ export class MyApp {
 		// User never logged in
 		// so show login page
 		env.rootPage = IntroPage;
-	}); 
-	this.loader.dismiss();
+	});
+	// this.loader.dismiss();
 	Splashscreen.hide();
 	StatusBar.styleDefault();
     });
     }
 
-  presentLoading() {
-
-  this.loader = this.loadingCtrl.create({
-    content: "Authenticating..."
-  });
-
-  this.loader.present();
-
-  }
+  // presentLoading() {
+  //
+  // this.loader = this.loadingCtrl.create({
+  //   content: "Authenticating..."
+  // });
+  //
+  // this.loader.present();
+  //
+  // }
 }
 // this.storage.get('introShown').then((result) => {
 
@@ -55,5 +55,3 @@ export class MyApp {
 	 // this.storage.set('introShown', true);
 	 // this.storage.clear();
         //}
-
-

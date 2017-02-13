@@ -15,10 +15,10 @@
 
 <ion-content>
   <ion-list no-lines style="margin-bottom: 0px;">
-    <button ion-item *ngFor="let item of items" class="cell border no-arrow inset64 tall">{{item}}</button>
+    <button ion-item *ngFor="let item of items" class="cell border no-arrow inset64 tall" (click)="select(item)">{{item}}</button>
     <div style="padding-left:64px;">
       <ion-item  class="cell tall">
-        <ion-input type="text" placeholder="Enter Location..."></ion-input>
+        <ion-input type="text" [value]="item" [(ngModel)]="item" placeholder="Enter Location..." (keyup.enter)="select(item)"></ion-input>
       </ion-item>
     </div>
   </ion-list>

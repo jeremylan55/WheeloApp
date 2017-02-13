@@ -14,10 +14,6 @@ ion-toolbar.light>.toolbar-background, ion-navbar.light>.toolbar-background {
 .tab-button.icon-only {
   min-height: 51px;
 }
-
-.ion-page {
-  background: #fff !important;
-}
 // =====================================================Typrography=================================================//
 
 .Header3.dark {
@@ -59,7 +55,9 @@ ion-toolbar.light>.toolbar-background, ion-navbar.light>.toolbar-background {
 
 
 // ==================================================Buttons====================================================//
-
+.alert-ios .alert-button {
+  border-radius: 0px !important;
+}
 button {
   text-transform: uppercase !important;
   font-family: Lato-Bold !important;

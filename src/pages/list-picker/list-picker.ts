@@ -12,8 +12,9 @@ import { NavController, NavParams, ViewController } from 'ionic-angular';
   templateUrl: 'list-picker.html'
 })
 export class ListPickerPage {
-
+  item:any
   constructor(public navCtrl: NavController, public navParams: NavParams, public view: ViewController) {
+    this.item = '';
   }
   items = this.navParams.get('userParams');
 
@@ -23,6 +24,10 @@ export class ListPickerPage {
 
   closeListPicker() {
     this.view.dismiss();
+  }
+
+  select(item) {
+    this.view.dismiss(item);
   }
 
 }

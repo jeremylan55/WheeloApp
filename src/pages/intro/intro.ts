@@ -68,7 +68,7 @@ export class IntroPage {
 		}, function(error){
 			console.log(error)
 		});
-  	}
+  }
 
 
   skip() {

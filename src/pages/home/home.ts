@@ -3,6 +3,7 @@ import { NavController, NavParams, ModalController} from 'ionic-angular';
 import {NativePageTransitions, NativeTransitionOptions, Facebook, StatusBar} from 'ionic-native';
 import {RideSharePost} from '../../app/models/rideSharePost';
 import { ListPickerPage } from '../list-picker/list-picker';
+import { SearchPage} from '../search/search';
 let locations = ["toronto","markham", "scarborough", "mississauga", "york", "brampton", "richmond hill", "montreal"];
 /*
   Generated class for the Home page.
@@ -108,9 +109,15 @@ export class HomePage {
 	}
  // Opens list picker and fill list using array "locations".
  // Call openListPicker()
+ // function .onDidDismiss(); is run when modal is closed.
   openListPicker() {
     let listPicker = this.modalCtrl.create(ListPickerPage, {userParams:locations});
+    listPicker.onDidDismiss(data => {
+      console.log(data);
+			if(typeof(data) != "undefined") {
+      	this.navCtrl.push(SearchPage);
+			}
+    });
     listPicker.present();
   }
-
 }
