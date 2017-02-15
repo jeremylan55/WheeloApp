@@ -126,9 +126,21 @@ export class HomePage {
 
 
 	showSearchToolbar() {
-		jq('#search-container').addClass('animated fadeOutUp');
+		jq('#search-container').addClass('animated fadeOut').delay(300).addClass('hidden');
 		jq('.toolbar-background').addClass('filled');
 		jq('ion-toolbar').addClass('big');
+		jq('#top-container').removeClass('animated fadeOut hidden').addClass('animated fadeIn');
+		jq('#field-container').removeClass('animated fadeOut hidden').addClass('animated fadeIn');
+		jq('#time-container').removeClass('animated fadeOut hidden').addClass('animated fadeIn');
+	}
+
+	hideSearchToolbar() {
+		jq('#search-container').removeClass('animated fadeOut hidden').addClass('animated fadeIn');
+		jq('.toolbar-background').removeClass('filled');
+		jq('ion-toolbar').removeClass('big');
+		jq('#top-container').removeClass('animated fadeInDown').addClass('animated fadeOut').delay(300).addClass('hidden');
+		jq('#field-container').removeClass('animated fadeIn').addClass('animated fadeOut').delay(300).addClass('hidden');
+		jq('#time-container').removeClass('animated fadeInUp').addClass('animated fadeOut').delay(300).addClass('hidden');
 	}
 
 	toggle(option) {

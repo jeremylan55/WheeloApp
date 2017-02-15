@@ -13,26 +13,28 @@ page-home {
   }
 
   .toolbar-background {
-    -webkit-transition: 0.3s; /* Safari */
-    transition: 0.3s;
+    -webkit-transition: 0.2s; /* Safari */
+    transition: 0.2s;
     background: color($colors, secondary) !important;
-    height: 50%;
+    height: 0%;
   }
 
   .toolbar-background.filled {
     height: 100%;
-    -webkit-transition: 0.3s; /* Safari */
-    transition: 0.3s;
+    -webkit-transition: 0.2s; /* Safari */
+    transition: 0.2s;
   }
 
   ion-toolbar {
     -webkit-transition: 0.3s; /* Safari */
     transition: 0.3s;
+    height: 80px;
+    overflow: hidden;
   }
   ion-toolbar.toolbar-md.big {
     -webkit-transition: 0.3s; /* Safari */
     transition: 0.3s;
-    height: 214px;
+    height: 219px;
     padding: 0px;
   }
   ion-toolbar.big {
@@ -73,11 +75,11 @@ page-home {
     height: auto;
     padding-left: 16px;
     padding-right: 16px;
-    float: left;
+    // float: left;
     margin-bottom: 12px;
     margin-top: 8px;
   }
-  #top-container>button {
+  #top-container>button.back {
     float: left;
   }
 

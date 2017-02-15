@@ -52,7 +52,12 @@ ion-toolbar.light>.toolbar-background, ion-navbar.light>.toolbar-background {
 .centre {
   text-align: center;
 }
-
+.hidden {
+  display: none;
+}
+.transparent {
+  opacity: 0.0;
+}
 
 // ==================================================Buttons====================================================//
 .alert-ios .alert-button {
@@ -90,6 +95,7 @@ button.back.light {
   background-repeat: no-repeat;
   background-position: center center;
   margin: 0px;
+  padding: 0px;
 }
 
 // ==================================================Sizing and Positining====================================================//
