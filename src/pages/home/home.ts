@@ -117,7 +117,7 @@ export class HomePage {
     let listPicker = this.modalCtrl.create(ListPickerPage, {userParams:locations});
     listPicker.onDidDismiss(data => {
       console.log(data);
-			if(typeof(data) != "undefined") {
+			if(typeof(data) != "undefined" && data != null) {
 				this.showSearchToolbar();
 			}
     });
@@ -132,6 +132,7 @@ export class HomePage {
 		jq('#top-container').removeClass('animated fadeOut hidden').addClass('animated fadeIn');
 		jq('#field-container').removeClass('animated fadeOut hidden').addClass('animated fadeIn');
 		jq('#time-container').removeClass('animated fadeOut hidden').addClass('animated fadeIn');
+		jq('.tabbar').removeClass('animated fast slideInUp').addClass('animated fast slideOutDown');
 	}
 
 	hideSearchToolbar() {
@@ -141,6 +142,7 @@ export class HomePage {
 		jq('#top-container').removeClass('animated fadeInDown').addClass('animated fadeOut').delay(300).addClass('hidden');
 		jq('#field-container').removeClass('animated fadeIn').addClass('animated fadeOut').delay(300).addClass('hidden');
 		jq('#time-container').removeClass('animated fadeInUp').addClass('animated fadeOut').delay(300).addClass('hidden');
+		jq('.tabbar').removeClass('animated fast slideOutDown').addClass('animated fast slideInUp');
 	}
 
 	toggle(option) {
