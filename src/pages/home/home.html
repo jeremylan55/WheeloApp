@@ -9,7 +9,13 @@
     <div id="search-container">
       <button ion-button color="light" id="search" class="FAB placeholder dark left" (click)="openListPicker()">Where to</button>
     </div>
-
+  <div id="top-container">
+    <button ion-button start clear color="light" class="back light"></button>
+    <div id="toggle-container">
+        <button ion-button clear color="light" id="single" class="selected" (click)="toggle('single')">Single</button>
+        <button ion-button clear color="light" id="double" (click)="toggle('double')">Double</button>
+    </div>
+  </div>
   <div id="field-container">
     <div id="icon-container">
     </div>

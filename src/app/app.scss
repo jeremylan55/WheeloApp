@@ -83,12 +83,13 @@ button.icon {
 button.cell {
   color: color($colors, dark) !important;
 }
-button.back {
+button.back.light {
   width: 36px;
   height: 36px;
   background-image: url('../assets/icons/icon_chevronleft_light.svg') !important;
   background-repeat: no-repeat;
   background-position: center center;
+  margin: 0px;
 }
 
 // ==================================================Sizing and Positining====================================================//

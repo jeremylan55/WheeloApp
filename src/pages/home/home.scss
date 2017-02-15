@@ -14,6 +14,7 @@ page-home {
 
   .toolbar-background {
     -webkit-transition: 0.3s; /* Safari */
+    transition: 0.3s;
     background: color($colors, secondary) !important;
     height: 50%;
   }
@@ -26,11 +27,18 @@ page-home {
 
   ion-toolbar {
     -webkit-transition: 0.3s; /* Safari */
+    transition: 0.3s;
   }
-
+  ion-toolbar.toolbar-md.big {
+    -webkit-transition: 0.3s; /* Safari */
+    transition: 0.3s;
+    height: 214px;
+    padding: 0px;
+  }
   ion-toolbar.big {
     -webkit-transition: 0.3s; /* Safari */
-    height: 236px;
+    transition: 0.3s;
+    height: 243px;
     padding: 0px;
   }
   #search {
@@ -48,20 +56,67 @@ page-home {
     padding-right: 16px;
   }
 
+  #search-container.fadeOutUp {
+    position: absolute;
+  }
+
   #field-container {
     width: 100%;
     height: auto;
     padding-left: 16px;
     padding-right: 16px;
+    margin-bottom: 12px;
+  }
+
+  #top-container {
+    width: 100%;
+    height: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    float: left;
+    margin-bottom: 12px;
+    margin-top: 8px;
+  }
+  #top-container>button {
     float: left;
   }
+
+  #toggle-container {
+    height: 36px;
+    width: 180px;
+    background: blue;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: color($colors,frost);
+    box-shadow: 0px 0px 1px 0px rgba(64,19,0,0.12);
+    border-radius: 4px;
+  }
+
+  #toggle-container>button {
+    float: left;
+    width: 50%;
+    height: 100%;
+    margin: 0px;
+    -webkit-transition: 0.3s; /* Safari */
+    transition: 0.3s;
+  }
+
+  #toggle-container>button.selected {
+    background: #fff;
+    color: color($colors,secondary);
+    -webkit-transition: 0.3s; /* Safari */
+    transition: 0.3s;
+    pointer-events: none;
+  }
+
+
   #icon-container {
     background-image: url('../assets/icons/path.svg') !important;
     background-repeat: no-repeat !important;
     background-position: center center !important;
     width: 40px;
     height: 104px;
-    margin-bottom: -104px;
+    float: left;
   }
   #location-container {
     // background: color($colors,secondary);
@@ -71,6 +126,7 @@ page-home {
     left: 0px;
     right: 0px;
     height: auto;
+    // float: left;
   }
   #location-container>button>span {
     justify-content:flex-start;
@@ -87,7 +143,7 @@ page-home {
   }
 
   #time-container {
-    position: fixed;
+    // position: fixed;
     bottom: 0px;
     width: 100%;
     height: auto;
@@ -97,6 +153,7 @@ page-home {
     float: left;
     width: 100%;
     height: 44px;
+    box-shadow: 0px 0px 1px 0px rgba(64,19,0,0.12);
   }
   .split>button {
     float: left;

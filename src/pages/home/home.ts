@@ -126,11 +126,15 @@ export class HomePage {
 
 
 	showSearchToolbar() {
-		jq('#search-container').addClass('animated fadeOutUpBig');
+		jq('#search-container').addClass('animated fadeOutUp');
 		jq('.toolbar-background').addClass('filled');
 		jq('ion-toolbar').addClass('big');
+	}
 
-
+	toggle(option) {
+		console.log(option);
+		jq('#toggle-container>button').removeClass('selected');
+		jq('button#'+option).addClass('selected');
 	}
 
 }
