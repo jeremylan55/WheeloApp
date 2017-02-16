@@ -4,7 +4,7 @@ page-intro.ion-page {
 page-intro {
   ion-slide {
     position: relative;
-    bottom: 24px;
+    bottom: 32px;
   }
   .swiper-pagination-bullet {
     background: color($colors,dark);
@@ -16,7 +16,7 @@ page-intro {
   }
 
   .Header {
-    margin-bottom: 8px;
+    margin-bottom: 24px;
   }
 
   .caption {
@@ -32,7 +32,7 @@ page-intro {
     height: 60px;
   }
   ion-row {
-    max-width: 301px;
+    max-width: 240px;
   }
   button.facebook {
     margin-bottom: 16px;
