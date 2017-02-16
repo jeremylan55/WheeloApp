@@ -41,6 +41,7 @@ export class RideSharePost {
 	* This will be a second option because sklearn is in python and idk how the fudge I'd be able to port it.
 	*/
 	static classifyDriverPost(str){
+		console.log(str);
 	}
 
 	/*
