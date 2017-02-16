@@ -14,12 +14,13 @@ ion-toolbar.light>.toolbar-background, ion-navbar.light>.toolbar-background {
 .tab-button.icon-only {
   min-height: 51px;
 }
+
 // =====================================================Typrography=================================================//
 
 .Header3.dark {
   font-family: Lato-Bold;
   font-size: 18px;
-  color: #2E3F53;
+  color: color($colors, dark);
   letter-spacing: 0px;
   line-height: 22px;
 }
@@ -27,15 +28,14 @@ ion-toolbar.light>.toolbar-background, ion-navbar.light>.toolbar-background {
 .Header.dark {
   font-family: Lato-Bold;
   font-size: 24px;
-  color: #2E3F53;
+  color: color($colors, dark);
   letter-spacing: 0px;
 }
 
 .caption.dark {
-  opacity: 0.63;
   font-family: Lato-Regular;
   font-size: 14px;
-  color: #334365;
+  color: color($colors, grey1);
   letter-spacing: 0px;
   line-height: 17px;
 }
@@ -43,7 +43,7 @@ ion-toolbar.light>.toolbar-background, ion-navbar.light>.toolbar-background {
 .placeholder.dark {
   font-family: Lato-Regular !important;
   font-size: 16px !important;
-  color: #8E8E93 !important;
+  color: color($colors, grey1) !important;
   letter-spacing: 0px !important;
 }
 .left {
@@ -52,7 +52,12 @@ ion-toolbar.light>.toolbar-background, ion-navbar.light>.toolbar-background {
 .centre {
   text-align: center;
 }
-
+.hidden {
+  display: none;
+}
+.transparent {
+  opacity: 0.0;
+}
 
 // ==================================================Buttons====================================================//
 .alert-ios .alert-button {
@@ -80,6 +85,18 @@ button.icon {
   height: 36px !important;
 }
 
+button.cell {
+  color: color($colors, dark) !important;
+}
+button.back.light {
+  width: 36px;
+  height: 36px;
+  background-image: url('../assets/icons/icon_chevronleft_light.svg') !important;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: 0px;
+  padding: 0px;
+}
 
 // ==================================================Sizing and Positining====================================================//
 .medWidth {
@@ -151,7 +168,7 @@ button.icon {
   height: 36px;
 }
 .icon.icon_cross {
-  background: url('../assets/icons/icon_cross_dark.svg') !important;
+  background-image: url('../assets/icons/icon_cross_dark.svg') !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
 }
@@ -168,7 +185,7 @@ button.icon {
   padding-bottom: 16px;
 }
 .cell.border>.item-inner {
-  border-bottom: 0.5px solid #C1C1C1 !important;
+  border-bottom: 0.5px solid color($colors, grey2) !important;
 }
 .cell.no-arrow>.item-inner {
   background-image: none !important;
@@ -192,6 +209,13 @@ button.icon {
 
 ion-label{
   margin: 0px !important;
+}
+
+
+ion-backdrop {
+  background: rgb(0,8,18) !important;
+  // opacity: 0.36 !important;
+  // transition-property: all 0.3s !important;
 }
 
 // App Global Sass

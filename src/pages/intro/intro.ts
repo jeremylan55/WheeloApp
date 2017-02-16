@@ -36,7 +36,6 @@ export class IntroPage {
 // Logins to facebook and receive the toekn.
 // Use this when deploying.
 // Call this from login()
-
 	login(){
 		Facebook.browserInit(this.FB_APP_ID, "v2.8");
 		let permissions = new Array();

@@ -4,6 +4,7 @@ import {NativePageTransitions, NativeTransitionOptions, Facebook, StatusBar} fro
 import {RideSharePost} from '../../app/models/rideSharePost';
 import { ListPickerPage } from '../list-picker/list-picker';
 import { SearchPage} from '../search/search';
+import jq from "jquery";
 let locations = ["toronto","markham", "scarborough", "mississauga", "york", "brampton", "richmond hill", "montreal"];
 /*
   Generated class for the Home page.
@@ -107,6 +108,8 @@ export class HomePage {
 		// Update the latest indexLoaded from curRawPosts
 		this.indexLoaded = (env.maxNumberLoadedPosts + this.indexLoaded >= env.curRawPosts.length) ? env.curRawPosts.length - 1 : env.maxNumberLoadedPosts + this.indexLoaded;
 	}
+
+
  // Opens list picker and fill list using array "locations".
  // Call openListPicker()
  // function .onDidDismiss(); is run when modal is closed.
@@ -114,10 +117,38 @@ export class HomePage {
     let listPicker = this.modalCtrl.create(ListPickerPage, {userParams:locations});
     listPicker.onDidDismiss(data => {
       console.log(data);
-			if(typeof(data) != "undefined") {
-      	this.navCtrl.push(SearchPage);
+			if(typeof(data) != "undefined" && data != null) {
+				this.showSearchToolbar();
 			}
     });
     listPicker.present();
   }
+
+
+	showSearchToolbar() {
+		jq('#search-container').addClass('animated fadeOut').delay(300).addClass('hidden');
+		jq('.toolbar-background').addClass('filled');
+		jq('ion-toolbar').addClass('big');
+		jq('#top-container').removeClass('animated fadeOut hidden').addClass('animated fadeIn');
+		jq('#field-container').removeClass('animated fadeOut hidden').addClass('animated fadeIn');
+		jq('#time-container').removeClass('animated fadeOut hidden').addClass('animated fadeIn');
+		jq('.tabbar').removeClass('animated fast slideInUp').addClass('animated fast slideOutDown');
+	}
+
+	hideSearchToolbar() {
+		jq('#search-container').removeClass('animated fadeOut hidden').addClass('animated fadeIn');
+		jq('.toolbar-background').removeClass('filled');
+		jq('ion-toolbar').removeClass('big');
+		jq('#top-container').removeClass('animated fadeInDown').addClass('animated fadeOut').delay(300).addClass('hidden');
+		jq('#field-container').removeClass('animated fadeIn').addClass('animated fadeOut').delay(300).addClass('hidden');
+		jq('#time-container').removeClass('animated fadeInUp').addClass('animated fadeOut').delay(300).addClass('hidden');
+		jq('.tabbar').removeClass('animated fast slideOutDown').addClass('animated fast slideInUp');
+	}
+
+	toggle(option) {
+		console.log(option);
+		jq('#toggle-container>button').removeClass('selected');
+		jq('button#'+option).addClass('selected');
+	}
+
 }
