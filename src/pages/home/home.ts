@@ -136,7 +136,7 @@ export class HomePage {
 	}
 
 	hideSearchToolbar() {
-		StatusBar.styleBlackTranslucent();
+		StatusBar.styleDefault();
 		jq('#search-container').removeClass('animated fadeOut hidden').addClass('animated fadeIn');
 		jq('.toolbar-background').removeClass('filled');
 		jq('ion-toolbar').removeClass('big');
