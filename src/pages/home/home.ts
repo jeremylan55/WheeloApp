@@ -49,6 +49,16 @@ export class HomePage {
 		this.loadRideShareFeed();
 	}
 
+	classifyDriver(cnxt, temp) {
+		for (let i = 0; i < temp.length; i++) {
+			var ret = RideSharePost.classifyDriverPost(temp[i].message);
+			if (ret == 0) {
+				cnxt.unknown_type.push(temp[i]);
+			} else if (ret > 0) {
+				cnxt.curRawPosts.push(temp[i]);
+			}
+		}
+	}
 	// Call this on inital page load
 	// Call this when user explictly requests reload
 	// All displayed posts are cleared when this is called
@@ -62,27 +72,49 @@ export class HomePage {
 			env.prevPosts = rideSharePosts.paging.previous;
 			env.nextPosts = rideSharePosts.paging.next;
 			env.indexLoaded = 0;
-			for (let i = 0; i < temp.length; i++) {
-				var ret = RideSharePost.classifyDriverPost(temp[i].message);
-				if (ret == 0) {
-					env.unknown_type.push(temp[i]);
-				} else if (ret > 0) {
-					env.curRawPosts.push(temp[i]);
-				}
-			}
+			env.classifyDriver(env,temp);
 			// Now we lazy load first 5 posts to screen
 			env.lazyLoadPosts(env.indexLoaded);
+			env.getPrevPage();
 		}, function(error){
-			console.log(error);
+			console.log(error.message);
 		});
 	}
 
 	// Use http request to get next page in feed 
 	getNextPage(){
-
+		var env = this;
+		console.log('NEXT URL: ' + env.nextPosts + '\n\n');
+		this.http.get(env.nextPosts).map(res => res.json()).subscribe(
+			data => {
+				var temp : any = data.data;
+				if (temp.length == 0) {
+					console.log('No more entries');
+					return 0;
+				}
+				env.nextPosts = data.paging.next;
+				this.classifyDriver(env,temp);
+			}, err => {
+				console.log(err.message);
+			});
 	}
 	// Use http request get previous page in feed
-	getPrevPage(){}
+	getPrevPage(){
+		var env = this;
+		console.log('PREVIOUS URL: ' + env.prevPosts + '\n\n');
+		this.http.get(env.prevPosts).map(res => res.json()).subscribe(
+			data => {
+				var temp : any = data.data;
+				if (temp.length == 0) {
+					console.log('No more entries');
+					return 0;
+				}
+				env.prevPosts = data.paging.previous;
+				this.classifyDriver(env,temp);
+			}, err => {
+				console.log(err.message);
+			});
+	}
 
 	// Loads the next 5 posts from this.curRawPosts to the screen from the given index in this.curRawPosts
 	// Call this from loadRideShareFeed()
@@ -126,7 +158,7 @@ export class HomePage {
 
 		}
 		// Update the latest indexLoaded from curRawPosts
-		this.indexLoaded = (env.maxNumberLoadedPosts + this.indexLoaded >= env.curRawPosts.length) ? env.curRawPosts.length - 1 : env.maxNumberLoadedPosts + this.indexLoaded;
+		this.indexLoaded = (env.maxNumberLoadedPosts + this.indexLoaded >= len) ? len - 1 : env.maxNumberLoadedPosts + this.indexLoaded;
 	}
 
 
