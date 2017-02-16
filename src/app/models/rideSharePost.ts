@@ -39,9 +39,34 @@ export class RideSharePost {
 	* Naive Bayes machine learning algorithm could also simply be used to acomplish this. Using sklean
 	* we could use the Gaussian Naive Bayes classifer for determing if a post is from a driver or not.
 	* This will be a second option because sklearn is in python and idk how the fudge I'd be able to port it.
+	*
+	* We need to find a clever way to classify inconclusive messages, and reduce false positives as this will
+	* degrade UX a lot
 	*/
 	static classifyDriverPost(str){
-		console.log(str);
+		var count = 0;
+		var driver_regexs = [/driving/i, /\$/, /offering/i];
+		var rider_regexs = [/looking/i, /\?/];
+
+		if (driver_regexs[0].test(str)) count += 2;
+		if(driver_regexs[1].test(str)) count += 1;
+		if (driver_regexs[2].test(str)) count += 1;
+		if (rider_regexs[0].test(str)) count -= 2;
+		if (rider_regexs[1].test(str)) count -= 1;
+
+		if (count > 0) {
+			console.log("DRIVER POST!!! : " + str);
+			return 1;	
+		}
+		if (count < 0) {
+			console.log("RIDER POST!!! : " + str);
+			return -1;
+		}
+		if (count == 0) {
+			console.log("INCONCLUSIVE!!! : " + str);
+			return 0;
+		}
+
 	}
 
 	/*
