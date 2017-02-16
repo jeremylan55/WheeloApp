@@ -74,7 +74,6 @@ export class HomePage {
 			env.classifyDriver(env,temp);
 			// Now we lazy load first 5 posts to screen
 			env.lazyLoadPosts(env.indexLoaded);
-			env.getPrevPage();
 		}, function(error){
 			console.log(error.message);
 		});
