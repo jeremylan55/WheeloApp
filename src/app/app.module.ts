@@ -8,6 +8,8 @@ import { HomePage } from '../pages/home/home';
 import { SettingsPage } from '../pages/settings/settings';
 import { TabsPage } from '../pages/tabs/tabs';
 import { IntroPage} from '../pages/intro/intro';
+import { ListPickerPage} from '../pages/list-picker/list-picker';
+import { SearchPage} from '../pages/search/search';
 
 @NgModule({
   declarations: [
@@ -16,8 +18,10 @@ import { IntroPage} from '../pages/intro/intro';
     ChatsPage,
     HomePage,
     SettingsPage,
-    TabsPage,
-    IntroPage
+    IntroPage,
+    ListPickerPage,
+    SearchPage,
+    TabsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp, {
@@ -31,8 +35,10 @@ import { IntroPage} from '../pages/intro/intro';
     ChatsPage,
     HomePage,
     SettingsPage,
-    TabsPage,
-    IntroPage
+    IntroPage,
+    ListPickerPage,
+    SearchPage,
+    TabsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Storage]
 })

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_chevronup_dark</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon_chevronup_dark">
+            <g id="icon_chevrondown_dark" transform="translate(12.000000, 12.000000) scale(1, -1) translate(-12.000000, -12.000000) ">
+                <rect id="Rectangle" fill="#D8D8D8" opacity="0" transform="translate(12.000000, 12.000000) scale(1, -1) translate(-12.000000, -12.000000) " x="0" y="0" width="24" height="24"></rect>
+                <path d="M11.2985725,17.7127408 L12,18.4030345 L12.7014275,17.7127408 L21.7014275,8.85559797 C22.0950634,8.46821027 22.1001285,7.83506555 21.7127408,7.44142966 C21.3253531,7.04779377 20.6922084,7.04272861 20.2985725,7.43011631 L11.2985725,16.2872592 L12.7014275,16.2872592 L3.70142748,7.43011631 C3.30779159,7.04272861 2.67464687,7.04779377 2.28725917,7.44142966 C1.89987147,7.83506555 1.90493663,8.46821027 2.29857252,8.85559797 L11.2985725,17.7127408 Z" id="Path-2" fill="#2D3F52"></path>
+            </g>
+        </g>
+    </g>
+</svg>

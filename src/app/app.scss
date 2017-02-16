@@ -15,15 +15,12 @@ ion-toolbar.light>.toolbar-background, ion-navbar.light>.toolbar-background {
   min-height: 51px;
 }
 
-.ion-page {
-  background: #fff !important;
-}
 // =====================================================Typrography=================================================//
 
 .Header3.dark {
   font-family: Lato-Bold;
   font-size: 18px;
-  color: #2E3F53;
+  color: color($colors, dark);
   letter-spacing: 0px;
   line-height: 22px;
 }
@@ -31,15 +28,14 @@ ion-toolbar.light>.toolbar-background, ion-navbar.light>.toolbar-background {
 .Header.dark {
   font-family: Lato-Bold;
   font-size: 24px;
-  color: #2E3F53;
+  color: color($colors, dark);
   letter-spacing: 0px;
 }
 
 .caption.dark {
-  opacity: 0.63;
   font-family: Lato-Regular;
   font-size: 14px;
-  color: #334365;
+  color: color($colors, grey1);
   letter-spacing: 0px;
   line-height: 17px;
 }
@@ -47,7 +43,7 @@ ion-toolbar.light>.toolbar-background, ion-navbar.light>.toolbar-background {
 .placeholder.dark {
   font-family: Lato-Regular !important;
   font-size: 16px !important;
-  color: #8E8E93 !important;
+  color: color($colors, grey1) !important;
   letter-spacing: 0px !important;
 }
 .left {
@@ -56,10 +52,17 @@ ion-toolbar.light>.toolbar-background, ion-navbar.light>.toolbar-background {
 .centre {
   text-align: center;
 }
-
+.hidden {
+  display: none;
+}
+.transparent {
+  opacity: 0.0;
+}
 
 // ==================================================Buttons====================================================//
-
+.alert-ios .alert-button {
+  border-radius: 0px !important;
+}
 button {
   text-transform: uppercase !important;
   font-family: Lato-Bold !important;
@@ -76,6 +79,23 @@ button.facebook {
   background-image: url('../assets/icons/facebook_light.svg') !important;
   background-repeat: no-repeat;
   background-position: 16px bottom;
+}
+button.icon {
+  width: 36px !important;
+  height: 36px !important;
+}
+
+button.cell {
+  color: color($colors, dark) !important;
+}
+button.back.light {
+  width: 36px;
+  height: 36px;
+  background-image: url('../assets/icons/icon_chevronleft_light.svg') !important;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: 0px;
+  padding: 0px;
 }
 
 // ==================================================Sizing and Positining====================================================//
@@ -110,7 +130,7 @@ button.facebook {
 }
 
 // ==================================================Iconography====================================================//
-
+// ***********************************************Tabs*************************************************//
 .tab-button-icon {
   width: 32px !important;
   height: 32px !important;
@@ -118,24 +138,84 @@ button.facebook {
 }
 
 .ion-md-icon_search, .ion-ios-icon_search-outline {
-  content: url('../assets/icons/icon_search_grey_36.svg');
+  content: url('../assets/icons/tabs/icon_search_grey_36.svg');
 }
 .tab-button[aria-selected=true]>.ion-md-icon_search, .ion-ios-icon_search {
-  content: url('../assets/icons/icon_search_dark_36.svg') !important;
+  content: url('../assets/icons/tabs/icon_search_dark_36.svg') !important;
 }
 
 .ion-md-icon_message, .ion-ios-icon_message-outline {
-  content: url('../assets/icons/icon_message_grey_36.svg');
+  content: url('../assets/icons/tabs/icon_message_grey_36.svg');
 }
 .tab-button[aria-selected=true]>.ion-md-icon_message, .ion-ios-icon_message {
-  content: url('../assets/icons/icon_message_dark_36.svg') !important;
+  content: url('../assets/icons/tabs/icon_message_dark_36.svg') !important;
 }
 
 .ion-md-icon_cog, .ion-ios-icon_cog-outline {
-  content: url('../assets/icons/icon_cog_grey_36.svg');
+  content: url('../assets/icons/tabs/icon_cog_grey_36.svg');
 }
 .tab-button[aria-selected=true]>.ion-md-icon_cog, .ion-ios-icon_cog {
-  content: url('../assets/icons/icon_cog_dark_36.svg') !important;
+  content: url('../assets/icons/tabs/icon_cog_dark_36.svg') !important;
+}
+
+// ***********************************************General*************************************************//
+.icon.sq24 {
+  width: 24px;
+  height: 24px;
+}
+.icon.sq36 {
+  width: 36px;
+  height: 36px;
+}
+.icon.icon_cross {
+  background-image: url('../assets/icons/icon_cross_dark.svg') !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+}
+
+// ==================================================Cells====================================================//
+.cell {
+  background: #ffffff;
+  border-radius: 0px !important;
+  padding: 0px;
+}
+.cell>.item-inner {
+  padding-right: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+.cell.border>.item-inner {
+  border-bottom: 0.5px solid color($colors, grey2) !important;
+}
+.cell.no-arrow>.item-inner {
+  background-image: none !important;
+}
+.cell.tall>.item-inner {
+  padding-top: 24px !important;
+  padding-bottom: 23px !important;
+}
+.cell.inset64{
+  padding-left: 64px !important;
+}
+.cell.inset64>.item-inner{
+  min-height: 0px;
+}
+.cell.inset64>.item-inner{
+  min-height: 0px;
+}
+.cell>.item-inner>.input-wrapper>ion-input>.text-input{
+  margin: 0px !important;
+}
+
+ion-label{
+  margin: 0px !important;
+}
+
+
+ion-backdrop {
+  background: rgb(0,8,18) !important;
+  // opacity: 0.36 !important;
+  // transition-property: all 0.3s !important;
 }
 
 // App Global Sass

@@ -7,8 +7,30 @@
 <ion-header no-border>
   <ion-toolbar class="light" no-border-top>
     <div id="search-container">
-      <button ion-button color="light" id="search" class="FAB placeholder dark left">Where to</button>
+      <button ion-button color="light" id="search" class="FAB placeholder dark left" (click)="openListPicker()">Where to</button>
     </div>
+  <div id="top-container" class="hidden">
+    <button ion-button start clear color="light" class="back light" (click)="hideSearchToolbar()"></button>
+    <div id="toggle-container">
+        <button ion-button clear color="light" id="single" class="selected" (click)="toggle('single')">Single</button>
+        <button ion-button clear color="light" id="double" (click)="toggle('double')">Double</button>
+    </div>
+  </div>
+  <div id="field-container" class="hidden">
+    <div id="icon-container">
+    </div>
+    <div id="location-container">
+      <button ion-button color="frost" id="pickup" class="left" (click)="openListPicker()">Where to</button>
+      <button ion-button color="frost" id="drop" class="left" (click)="openListPicker()">Where to</button>
+    </div>
+  </div>
+
+  <div id="time-container" class="hidden">
+    <div class="split">
+      <button ion-button color="frost" id="date" class="left">Today</button>
+      <button ion-button color="frost" id="time" class="left">09:00 AM</button>
+    </div>
+  </div>
   </ion-toolbar>
 </ion-header>
 
