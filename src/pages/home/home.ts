@@ -5,6 +5,9 @@ import {RideSharePost} from '../../app/models/rideSharePost';
 import { ListPickerPage } from '../list-picker/list-picker';
 import { SearchPage} from '../search/search';
 import jq from "jquery";
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
+
 let locations = ["toronto","markham", "scarborough", "mississauga", "york", "brampton", "richmond hill", "montreal"];
 /*
   Generated class for the Home page.
@@ -19,11 +22,13 @@ let locations = ["toronto","markham", "scarborough", "mississauga", "york", "bra
 export class HomePage {
 	prevPosts: any; // Url for previous page of posts
 	nextPosts: any; // Url for next page of posts
-	curRawPosts: any; // Stores array of raw facebook posts. Post object = {message, updated_time, id}
+	curRawPosts: Array<any> = []; // Stores array of raw facebook posts. Post object = {message, updated_time, id}
 	indexLoaded: number; // The highest index loaded from curRawPosts
 	displayedPosts: any; // Posts that ahve been displayed since page last loaded
 	maxNumberLoadedPosts: number = 5; // Maximum number of posts that get loaded at a single time
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {}
+	unknown_type: Array<any> = [];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public http: Http) {}
 
 	ionViewDidLoad() {
 		let options: NativeTransitionOptions = {
@@ -43,6 +48,16 @@ export class HomePage {
 		this.loadRideShareFeed();
 	}
 
+	classifyDriver(cnxt, temp) {
+		for (let i = 0; i < temp.length; i++) {
+			var ret = RideSharePost.classifyDriverPost(temp[i].message);
+			if (ret == 0) {
+				cnxt.unknown_type.push(temp[i]);
+			} else if (ret > 0) {
+				cnxt.curRawPosts.push(temp[i]);
+			}
+		}
+	}
 	// Call this on inital page load
 	// Call this when user explictly requests reload
 	// All displayed posts are cleared when this is called
@@ -52,15 +67,52 @@ export class HomePage {
 		this.displayedPosts = new Array();
 		Facebook.api('/225049564330328/feed', params)
 		.then(function(rideSharePosts){
-			env.curRawPosts = rideSharePosts.data;
+			let temp : any  = rideSharePosts.data;
 			env.prevPosts = rideSharePosts.paging.previous;
 			env.nextPosts = rideSharePosts.paging.next;
 			env.indexLoaded = 0;
+			env.classifyDriver(env,temp);
 			// Now we lazy load first 5 posts to screen
 			env.lazyLoadPosts(env.indexLoaded);
+			env.getPrevPage();
 		}, function(error){
-			console.log(error);
+			console.log(error.message);
 		});
+	}
+
+	// Use http request to get next page in feed 
+	getNextPage(){
+		var env = this;
+		console.log('NEXT URL: ' + env.nextPosts + '\n\n');
+		this.http.get(env.nextPosts).map(res => res.json()).subscribe(
+			data => {
+				var temp : any = data.data;
+				if (temp.length == 0) {
+					console.log('No more entries');
+					return 0;
+				}
+				env.nextPosts = data.paging.next;
+				this.classifyDriver(env,temp);
+			}, err => {
+				console.log(err.message);
+			});
+	}
+	// Use http request get previous page in feed
+	getPrevPage(){
+		var env = this;
+		console.log('PREVIOUS URL: ' + env.prevPosts + '\n\n');
+		this.http.get(env.prevPosts).map(res => res.json()).subscribe(
+			data => {
+				var temp : any = data.data;
+				if (temp.length == 0) {
+					console.log('No more entries');
+					return 0;
+				}
+				env.prevPosts = data.paging.previous;
+				this.classifyDriver(env,temp);
+			}, err => {
+				console.log(err.message);
+			});
 	}
 
 	// Loads the next 5 posts from this.curRawPosts to the screen from the given index in this.curRawPosts
@@ -71,10 +123,10 @@ export class HomePage {
 		let lst = env.curRawPosts;
 		let params = new Array();
 		let lastEntry = (env.displayedPosts.length == 0) ? 0 : env.displayedPosts.length - 1;
+		let len =  env.curRawPosts.length;
 
 		console.log('Lazy Loading ...');
-
-		for (let i = index; i < env.maxNumberLoadedPosts || i < env.curRawPosts.length; i++){
+		for (let i = index; i < env.maxNumberLoadedPosts || i < len; i++){
 
 			// Append new RideSharePost object to displayed objects
 			// TODO: ONLY append posts that are marked as drivers
@@ -105,7 +157,7 @@ export class HomePage {
 
 		}
 		// Update the latest indexLoaded from curRawPosts
-		this.indexLoaded = (env.maxNumberLoadedPosts + this.indexLoaded >= env.curRawPosts.length) ? env.curRawPosts.length - 1 : env.maxNumberLoadedPosts + this.indexLoaded;
+		this.indexLoaded = (env.maxNumberLoadedPosts + this.indexLoaded >= len) ? len - 1 : env.maxNumberLoadedPosts + this.indexLoaded;
 	}
 
 
