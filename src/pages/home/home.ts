@@ -40,7 +40,6 @@ export class HomePage {
       		.catch((err) => {
 
       		});
-    		StatusBar.styleLightContent();
 		this.loadRideShareFeed();
 	}
 
@@ -126,6 +125,7 @@ export class HomePage {
 
 
 	showSearchToolbar() {
+		StatusBar.styleLightContent();
 		jq('#search-container').addClass('animated fadeOut').delay(300).addClass('hidden');
 		jq('.toolbar-background').addClass('filled');
 		jq('ion-toolbar').addClass('big');
@@ -136,6 +136,7 @@ export class HomePage {
 	}
 
 	hideSearchToolbar() {
+		StatusBar.styleBlackTranslucent();
 		jq('#search-container').removeClass('animated fadeOut hidden').addClass('animated fadeIn');
 		jq('.toolbar-background').removeClass('filled');
 		jq('ion-toolbar').removeClass('big');
