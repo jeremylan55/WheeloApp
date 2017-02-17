@@ -15,6 +15,7 @@ let locations = ["toronto","markham", "scarborough", "mississauga", "york", "bra
 	templateUrl: 'home.html'
 })
 export class HomePage {
+	items: any[];
 	prevPosts: any; // Url for previous page of posts
 	nextPosts: any; // Url for next page of posts
 	curRawPosts: any; // Stores array of raw facebook posts. Post object = {message, updated_time, id}
@@ -40,6 +41,17 @@ export class HomePage {
       		});
     		StatusBar.styleLightContent();
 		this.loadRideShareFeed();
+		this.items = [];
+		for (let i = 0; i < 5; i++){
+			this.items.push({
+				text: 'Item' + i,
+				id: i
+			});
+		}
+	}
+
+	itemSelected(item){
+		alert(item.text);
 	}
 
 	// Call this on inital page load
