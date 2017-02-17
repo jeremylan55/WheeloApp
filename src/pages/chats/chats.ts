@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
+import { SearchPage} from '../search/search';
 /*
   Generated class for the Chats page.
 
@@ -18,5 +18,4 @@ export class ChatsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChatsPage');
   }
-
 }
