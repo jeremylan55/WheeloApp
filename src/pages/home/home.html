@@ -12,8 +12,9 @@
   <div id="top-container" class="hidden">
     <button ion-button start clear color="light" class="back light" (click)="hideSearchToolbar()"></button>
     <div id="toggle-container">
-        <button ion-button clear color="light" id="single" class="selected" (click)="toggle('single')">Single</button>
-        <button ion-button clear color="light" id="double" (click)="toggle('double')">Double</button>
+        <div id="selector"></div>
+        <button ion-button clear color="light" id="single" class="selected" (click)="toggle()">Single</button>
+        <button ion-button clear color="light" id="double" (click)="toggle()">Round</button>
     </div>
   </div>
   <div id="field-container" class="hidden">
@@ -26,10 +27,25 @@
   </div>
 
   <div id="time-container" class="hidden">
-    <div class="split">
-      <button ion-button color="frost" id="date" class="left">Today</button>
-      <button ion-button color="frost" id="time" class="left">09:00 AM</button>
+
+    <div id="going">
+      <div class="caption light hidden">Going</div>
+      <div class="split">
+        <button ion-button color="frost" id="date" class="left">Today</button>
+        <div class="vert-sep28"></div>
+        <button ion-button color="frost" id="time" class="left">09:00 AM</button>
+      </div>
     </div>
+
+    <div id="returning" class="hidden">
+      <div class="caption light">Returning</div>
+      <div class="split">
+        <button ion-button color="frost" id="date" class="left">Today</button>
+        <div class="vert-sep28"></div>
+        <button ion-button color="frost" id="time" class="left">09:00 AM</button>
+      </div>
+    </div>
+
   </div>
   </ion-toolbar>
 </ion-header>

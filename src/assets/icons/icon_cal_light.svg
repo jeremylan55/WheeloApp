@@ -3,12 +3,18 @@
     <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
     <title>icon_cal_light</title>
     <desc>Created with Sketch.</desc>
-    <defs></defs>
+    <defs>
+        <path d="M21,3 L21,21 L7.99009984,21 C5.2341438,21 3,18.7566822 3,16.0099002 L3,3 L21,3 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="18" height="18" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
     <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="icon_cal_light">
             <g id="icon_cal">
                 <rect id="Rectangle" fill="#D8D8D8" opacity="0" x="0" y="0" width="24" height="24"></rect>
-                <path d="M3,5 L5,3 L5,16.0099002 C5,17.6558489 6.34244631,19 7.99009984,19 L21,19 L19,21 L19,3 L21,5 L3,5 Z M21,3 L21,21 L7.99009984,21 C5.2341438,21 3,18.7566822 3,16.0099002 L3,3 L21,3 Z M3,3 L21,3 L21,10 L3,10 L3,3 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+                <use id="Rectangle-2" stroke="#FFFFFF" mask="url(#mask-2)" stroke-width="4" xlink:href="#path-1"></use>
+                <rect id="Rectangle-2" fill="#FFFFFF" x="3" y="3" width="18" height="7"></rect>
             </g>
         </g>
     </g>

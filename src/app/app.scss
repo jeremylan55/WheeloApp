@@ -40,6 +40,15 @@ ion-toolbar.light>.toolbar-background, ion-navbar.light>.toolbar-background {
   line-height: 17px;
 }
 
+.caption.light {
+  opacity: 0.72;
+  font-family: Lato-Regular;
+  font-size: 14px;
+  color: color($colors, light);
+  letter-spacing: 0px;
+  line-height: 16px;
+}
+
 .placeholder.dark {
   font-family: Lato-Regular !important;
   font-size: 16px !important;
@@ -96,6 +105,10 @@ button.back.light {
   background-position: center center;
   margin: 0px;
   padding: 0px;
+}
+
+button[color="frost"].activated {
+  background-color: #93C5C9;
 }
 
 // ==================================================Sizing and Positining====================================================//
