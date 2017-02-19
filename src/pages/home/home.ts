@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController} from 'ionic-angular';
-import {NativePageTransitions, NativeTransitionOptions, Facebook, StatusBar} from 'ionic-native';
+import {NativePageTransitions, NativeTransitionOptions, Facebook, StatusBar, Keyboard, Geolocation} from 'ionic-native';
 import {RideSharePost} from '../../app/models/rideSharePost';
 import { ListPickerPage } from '../list-picker/list-picker';
 import { SearchPage} from '../search/search';
@@ -8,7 +8,7 @@ import jq from "jquery";
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-let locations = ["toronto","markham", "scarborough", "mississauga", "york", "brampton", "richmond hill", "montreal"];
+let locations = ["waterloo","toronto","markham", "scarborough", "mississauga", "york", "brampton", "richmond hill", "montreal"];
 /*
   Generated class for the Home page.
 
@@ -55,6 +55,14 @@ export class HomePage {
 			});
 		this.loadRideShareFeed();
 		console.log("TODAY IS :" + this.today);
+
+		Geolocation.getCurrentPosition().then((resp) => {
+		 // resp.coords.latitude
+		 // resp.coords.longitude
+		}).catch((error) => {
+		  console.log('Error getting location', error);
+		});
+
 	}
 
 	classifyDriver(cnxt, temp) {
@@ -175,6 +183,7 @@ export class HomePage {
   openListPicker(fieldID) {
     let listPicker = this.modalCtrl.create(ListPickerPage, {userParams:locations});
     listPicker.onDidDismiss(data => {
+			Keyboard.close();
 			if(typeof(data) != "undefined" && data != null) {
 				this.showSearchToolbar();
 				this.userFilters[fieldID] = data;

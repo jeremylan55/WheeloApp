@@ -84,6 +84,11 @@ page-home {
     width: 100vw;
   }
 
+  ion-toolbar {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
   #search {
     padding: 0px;
   }
@@ -93,12 +98,14 @@ page-home {
     margin-left: 48px;
   }
   #search-container {
-    width: 100%;
+    width: auto;
     height: 52px;
-    padding-left: 16px;
-    padding-right: 16px;
+    margin-left: 16px !important;
+    margin-right: 16px !important;
+    padding-top: 4px;
+    left: 0px !important;
+    right: 0px !important;
     position: absolute;
-    z-index: 20;
   }
 
   #field-container {

@@ -8,6 +8,14 @@ ion-toolbar.light>.toolbar-background, ion-navbar.light>.toolbar-background {
 ion-datetime {
   padding: 0px !important;
 }
+
+.picker-opt {
+    color: color($colors,dark) !important;
+}
+
+.picker-md .picker-opt.picker-opt-selected {
+  color: color($colors,primary) !important;
+}
 // ====================================================Headers and Footers==================================================//
 .tabbar {
   border-top: 1px solid #EFEFEF !important;
@@ -21,6 +29,10 @@ ion-datetime {
 }
 .picker-toolbar {
   border: none !important;
+}
+ion-toolbar {
+  padding-left: 12px !important;
+  padding-right: 12px !important;
 }
 
 // =====================================================Typrography=================================================//
@@ -90,6 +102,10 @@ button {
 }
 button.FAB {
   box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.24) !important;
+}
+
+button.FAB.activated {
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.24) !important;
 }
 
 button.facebook {

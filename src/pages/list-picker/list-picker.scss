@@ -5,7 +5,7 @@ ion-backdrop {
 .modal-wrapper {
   position: absolute;
   top: auto !important;
-  height: 450px !important;
+  height: 466px !important;
   width: auto !important;
   margin-left: 0px !important;
   margin-right: 0px !important;
@@ -17,8 +17,7 @@ ion-backdrop {
 
 page-list-picker {
   ion-toolbar {
-    padding: 0px !important;
-    padding-right: 10px !important;
+    padding-top: 4px !important;
     min-height: 44px !important;
   }
 }
