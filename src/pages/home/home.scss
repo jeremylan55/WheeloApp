@@ -261,6 +261,12 @@ page-home {
     left: 50%;
     opacity: 0.24;
   }
+  .split>button>span>.datetime-ios>button {
+    border-radius: 0px !important;
+  }
+  .split>button>span>.datetime-ios>button.activated {
+    background-color: rgba(255,255,255,0.18);
+  }
 
   button.button-md-frost.activated {
     box-shadow: 0px 0px 0px;

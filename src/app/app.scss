@@ -3,6 +3,11 @@
 ion-toolbar.light>.toolbar-background, ion-navbar.light>.toolbar-background {
   background-color: #fff;
 }
+
+// ====================================================Overwrites==================================================//
+ion-datetime {
+  padding: 0px !important;
+}
 // ====================================================Headers and Footers==================================================//
 .tabbar {
   border-top: 1px solid #EFEFEF !important;
@@ -13,6 +18,9 @@ ion-toolbar.light>.toolbar-background, ion-navbar.light>.toolbar-background {
 }
 .tab-button.icon-only {
   min-height: 51px;
+}
+.picker-toolbar {
+  border: none !important;
 }
 
 // =====================================================Typrography=================================================//

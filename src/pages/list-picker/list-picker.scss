@@ -14,3 +14,11 @@ ion-backdrop {
   bottom: 0px;
   box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.48);
 }
+
+page-list-picker {
+  ion-toolbar {
+    padding: 0px !important;
+    padding-right: 10px !important;
+    min-height: 44px !important;
+  }
+}

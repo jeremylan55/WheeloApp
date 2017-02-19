@@ -7,7 +7,7 @@
 <ion-header no-border>
   <ion-toolbar class="light" no-border-top>
     <div id="search-container">
-      <button ion-button color="light" id="search" class="FAB placeholder dark left" (click)="openListPicker()">Where to</button>
+      <button ion-button color="light" id="search" class="FAB placeholder dark left" (click)="openListPicker('destination')">Where to</button>
     </div>
   <div id="top-container" class="hidden">
     <button ion-button start clear color="light" class="back light" (click)="hideSearchToolbar()"></button>
@@ -21,8 +21,8 @@
     <div id="icon-container">
     </div>
     <div id="location-container">
-      <button ion-button color="frost" id="pickup" class="left" (click)="openListPicker()">Where to</button>
-      <button ion-button color="frost" id="drop" class="left" (click)="openListPicker()">Where to</button>
+      <button ion-button color="frost" class="left" (click)="openListPicker('location')">{{userFilters.location}}</button>
+      <button ion-button color="frost" class="left" (click)="openListPicker('destination')">{{userFilters.destination}}</button>
     </div>
   </div>
 
@@ -31,18 +31,26 @@
     <div id="going">
       <div class="caption light hidden">Going</div>
       <div class="split">
-        <button ion-button color="frost" id="date" class="left">Today</button>
+        <button ion-button color="frost" id="date" class="left" (click)="buildDays()">
+          <ion-datetime displayFormat="DDD DD MMM YY" pickerFormat="DDD MMM YY" [(ngModel)]="userFilters.dateTime" min="{{today}}" yearValues="{{years}}" (ionChange)="validateDateTime('going');refreshSearch()"></ion-datetime>
+        </button>
         <div class="vert-sep28"></div>
-        <button ion-button color="frost" id="time" class="left">09:00 AM</button>
+        <button ion-button color="frost" id="time" class="left" (click)="buildDays()">
+          <ion-datetime displayFormat="hh:mm A" pickerFormat="	hh:mm A" [(ngModel)]="userFilters.dateTime" min="{{today}}" (ionChange)="validateDateTime('going');refreshSearch()"></ion-datetime>
+        </button>
       </div>
     </div>
 
     <div id="returning" class="hidden">
       <div class="caption light">Returning</div>
       <div class="split">
-        <button ion-button color="frost" id="date" class="left">Today</button>
+        <button ion-button color="frost" id="date" class="left" (click)="buildDays()">
+          <ion-datetime displayFormat="DDD DD MMM YY" pickerFormat="DD MMM YY" [(ngModel)]="userFilters.returningDateTime" min="{{today}}" yearValues="{{years}}" (ionChange)="validateDateTime('returning');refreshSearch()"></ion-datetime>
+        </button>
         <div class="vert-sep28"></div>
-        <button ion-button color="frost" id="time" class="left">09:00 AM</button>
+        <button ion-button color="frost" id="time" class="left" (click)="buildDays()">
+          <ion-datetime displayFormat="hh:mm A" pickerFormat="	hh:mm A" [(ngModel)]="userFilters.returningDateTime" min="{{today}}" (ionChange)="validateDateTime('returning');refreshSearch()"></ion-datetime>
+        </button>
       </div>
     </div>
 

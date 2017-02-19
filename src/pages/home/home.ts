@@ -27,25 +27,34 @@ export class HomePage {
 	displayedPosts: any; // Posts that ahve been displayed since page last loaded
 	maxNumberLoadedPosts: number = 5; // Maximum number of posts that get loaded at a single time
 	unknown_type: Array<any> = [];
-
+	myDate: string = this.LocalDate(); // initilize datepicker to current datetime in ISO 8601 format for current timezone.
+	today: string = this.myDate.toString(); // limit min value of datepicker to be today's date.
+	years: string = this.myDate.slice(0,4).toString()+"," + (Number(this.myDate.slice(0,4).toString())+1).toString();
+	userFilters = {
+		"type" : "single", // can be "single" or "double"
+		"destination" : "",
+		"location" : "From",
+		"dateTime" : this.myDate.toString(),
+		"returningDateTime" : ""
+	};
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public http: Http) {}
 
 	ionViewDidLoad() {
 		let options: NativeTransitionOptions = {
 			"direction"      : "left",
-      			"duration"       :  400, // in milliseconds (ms), default 400
-      			"iosdelay"       :   60, // ms to wait for the iOS webview to update before animation kicks in, default 60
-      			"androiddelay"   :  100
-    		};
+			"duration"       :  400, // in milliseconds (ms), default 400
+			"iosdelay"       :   60, // ms to wait for the iOS webview to update before animation kicks in, default 60
+			"androiddelay"   :  100
+		};
+		NativePageTransitions.flip(options)
+			.then((data) => {
 
-   		 NativePageTransitions.flip(options)
-      		.then((data) => {
+			})
+			.catch((err) => {
 
-      		})
-      		.catch((err) => {
-
-      		});
+			});
 		this.loadRideShareFeed();
+		console.log("TODAY IS :" + this.today);
 	}
 
 	classifyDriver(cnxt, temp) {
@@ -161,14 +170,15 @@ export class HomePage {
 
 
  // Opens list picker and fill list using array "locations".
- // Call openListPicker()
+ // Call openListPicker(idOfField)
  // function .onDidDismiss(); is run when modal is closed.
-  openListPicker() {
+  openListPicker(fieldID) {
     let listPicker = this.modalCtrl.create(ListPickerPage, {userParams:locations});
     listPicker.onDidDismiss(data => {
-      console.log(data);
 			if(typeof(data) != "undefined" && data != null) {
 				this.showSearchToolbar();
+				this.userFilters[fieldID] = data;
+				this.refreshSearch();
 			}
     });
     listPicker.present();
@@ -214,9 +224,13 @@ export class HomePage {
 		jq('#toggle-container>button').toggleClass('selected');
 		if(jq('#toggle-container>#selector').hasClass('double')){
 			this.showDouble();
+			this.userFilters.type = "double";
+			if(this.userFilters.returningDateTime == "")
+				this.userFilters.returningDateTime = this.userFilters.dateTime;
 		}
 		else {
 			this.hideDouble();
+			this.userFilters.type = "single";
 		}
 	}
 
@@ -232,5 +246,39 @@ export class HomePage {
 		jq('ion-toolbar').removeClass('double').addClass('single');
 	}
 
+	validateDateTime(fieldID) {
+		if(this.userFilters.dateTime > this.userFilters.returningDateTime) {
+			if(fieldID == 'going') {
+				this.userFilters.returningDateTime = this.userFilters.dateTime;
+			}
+			if(fieldID == 'returning') {
+				this.userFilters.dateTime = this.userFilters.returningDateTime;
+			}
+		}
+	}
+	// Refresh search results base filter options in toolbar.
+	// Call this from refreshSearch().
+	// Is called upon change of filter options.
+	refreshSearch() {
+		console.log(this.userFilters);
+	}
+
+	LocalDate() {
+	    var now = new Date(),
+	        tzo = -now.getTimezoneOffset(),
+	        dif = tzo >= 0 ? '+' : '-',
+	        pad = function(num) {
+	            var norm = Math.abs(Math.floor(num));
+	            return (norm < 10 ? '0' : '') + norm;
+	        };
+	    return now.getFullYear()
+	        + '-' + pad(now.getMonth()+1)
+	        + '-' + pad(now.getDate())
+	        + 'T' + pad(now.getHours())
+	        + ':' + pad(now.getMinutes())
+	        + ':' + pad(now.getSeconds())
+	        + dif + pad(tzo / 60)
+	        + ':' + pad(tzo % 60);
+	}
 
 }
