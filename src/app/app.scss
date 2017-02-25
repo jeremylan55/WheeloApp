@@ -3,6 +3,19 @@
 ion-toolbar.light>.toolbar-background, ion-navbar.light>.toolbar-background {
   background-color: #fff;
 }
+
+// ====================================================Overwrites==================================================//
+ion-datetime {
+  padding: 0px !important;
+}
+
+.picker-opt {
+    color: color($colors,dark) !important;
+}
+
+.picker-md .picker-opt.picker-opt-selected {
+  color: color($colors,primary) !important;
+}
 // ====================================================Headers and Footers==================================================//
 .tabbar {
   border-top: 1px solid #EFEFEF !important;
@@ -13,6 +26,13 @@ ion-toolbar.light>.toolbar-background, ion-navbar.light>.toolbar-background {
 }
 .tab-button.icon-only {
   min-height: 51px;
+}
+.picker-toolbar {
+  border: none !important;
+}
+ion-toolbar {
+  padding-left: 12px !important;
+  padding-right: 12px !important;
 }
 
 // =====================================================Typrography=================================================//
@@ -38,6 +58,15 @@ ion-toolbar.light>.toolbar-background, ion-navbar.light>.toolbar-background {
   color: color($colors, grey1);
   letter-spacing: 0px;
   line-height: 17px;
+}
+
+.caption.light {
+  opacity: 0.72;
+  font-family: Lato-Regular;
+  font-size: 14px;
+  color: color($colors, light);
+  letter-spacing: 0px;
+  line-height: 16px;
 }
 
 .placeholder.dark {
@@ -75,6 +104,10 @@ button.FAB {
   box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.24) !important;
 }
 
+button.FAB.activated {
+  box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.24) !important;
+}
+
 button.facebook {
   background-image: url('../assets/icons/facebook_light.svg') !important;
   background-repeat: no-repeat;
@@ -96,6 +129,10 @@ button.back.light {
   background-position: center center;
   margin: 0px;
   padding: 0px;
+}
+
+button[color="frost"].activated {
+  background-color: #93C5C9;
 }
 
 // ==================================================Sizing and Positining====================================================//

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController} from 'ionic-angular';
-import {NativePageTransitions, NativeTransitionOptions, Facebook, StatusBar} from 'ionic-native';
+import {NativePageTransitions, NativeTransitionOptions, Facebook, StatusBar, Keyboard, Geolocation} from 'ionic-native';
 import {RideSharePost} from '../../app/models/rideSharePost';
 import { ListPickerPage } from '../list-picker/list-picker';
 import { SearchPage} from '../search/search';
@@ -8,7 +8,7 @@ import jq from "jquery";
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-let locations = ["toronto","markham", "scarborough", "mississauga", "york", "brampton", "richmond hill", "montreal"];
+let locations = ["waterloo","toronto","markham", "scarborough", "mississauga", "york", "brampton", "richmond hill", "montreal"];
 /*
   Generated class for the Home page.
 
@@ -28,24 +28,32 @@ export class HomePage {
 	displayedPosts: any; // Posts that ahve been displayed since page last loaded
 	maxNumberLoadedPosts: number = 5; // Maximum number of posts that get loaded at a single time
 	unknown_type: Array<any> = [];
-
+	myDate: string = this.LocalDate(); // initilize datepicker to current datetime in ISO 8601 format for current timezone.
+	today: string = this.myDate.toString(); // limit min value of datepicker to be today's date.
+	years: string = this.myDate.slice(0,4).toString()+"," + (Number(this.myDate.slice(0,4).toString())+1).toString();
+	userFilters = {
+		"type" : "single", // can be "single" or "double"
+		"destination" : "",
+		"location" : "From",
+		"dateTime" : this.myDate.toString(),
+		"returningDateTime" : ""
+	};
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public http: Http) {}
 
 	ionViewDidLoad() {
 		let options: NativeTransitionOptions = {
-						"direction"      : "left",
-      			"duration"       :  400, // in milliseconds (ms), default 400
-      			"iosdelay"       :   60, // ms to wait for the iOS webview to update before animation kicks in, default 60
-      			"androiddelay"   :  100
-    		};
+			"direction"      : "left",
+			"duration"       :  400, // in milliseconds (ms), default 400
+			"iosdelay"       :   60, // ms to wait for the iOS webview to update before animation kicks in, default 60
+			"androiddelay"   :  100
+		};
+		NativePageTransitions.flip(options)
+			.then((data) => {
 
-   		 NativePageTransitions.flip(options)
-      		.then((data) => {
+			})
+			.catch((err) => {
 
-      		})
-      		.catch((err) => {
-
-      		});
+			});
 		this.loadRideShareFeed();
 		this.items = [];
 		for (let i = 0; i < 5; i++){
@@ -58,6 +66,14 @@ export class HomePage {
 
 	itemSelected(item){
 		alert(item.text);
+		console.log("TODAY IS :" + this.today);
+
+		Geolocation.getCurrentPosition().then((resp) => {
+		 // resp.coords.latitude
+		 // resp.coords.longitude
+		}).catch((error) => {
+		  console.log('Error getting location', error);
+		});
 	}
 
 	classifyDriver(cnxt, temp) {
@@ -173,14 +189,16 @@ export class HomePage {
 
 
  // Opens list picker and fill list using array "locations".
- // Call openListPicker()
+ // Call openListPicker(idOfField)
  // function .onDidDismiss(); is run when modal is closed.
-  openListPicker() {
+  openListPicker(fieldID) {
     let listPicker = this.modalCtrl.create(ListPickerPage, {userParams:locations});
     listPicker.onDidDismiss(data => {
-      console.log(data);
+			Keyboard.close();
 			if(typeof(data) != "undefined" && data != null) {
 				this.showSearchToolbar();
+				this.userFilters[fieldID] = data;
+				this.refreshSearch();
 			}
     });
     listPicker.present();
@@ -189,30 +207,98 @@ export class HomePage {
 
 	showSearchToolbar() {
 		StatusBar.styleLightContent();
-		jq('#search-container').addClass('animated fadeOut').delay(300).addClass('hidden');
+		jq('#search-container').addClass('animated fadeOutUp fast');
+		jq('.tabbar').removeClass('animated fast slideInUp').addClass('animated fast slideOutDown');
 		jq('.toolbar-background').addClass('filled');
 		jq('ion-toolbar').addClass('big');
-		jq('#top-container').removeClass('animated fadeOut hidden').addClass('animated fadeIn');
-		jq('#field-container').removeClass('animated fadeOut hidden').addClass('animated fadeIn');
-		jq('#time-container').removeClass('animated fadeOut hidden').addClass('animated fadeIn');
-		jq('.tabbar').removeClass('animated fast slideInUp').addClass('animated fast slideOutDown');
+
+		setTimeout(function(){
+			jq('#top-container').removeClass('animated fadeOut fast hidden').addClass('animated fast fadeIn');
+			jq('#field-container').removeClass('animated fadeOut fast hidden').addClass('animated fast fadeIn');
+			jq('#time-container').removeClass('animated fadeOut fast hidden').addClass('animated fast fadeIn');
+		},200);
 	}
 
 	hideSearchToolbar() {
 		StatusBar.styleDefault();
-		jq('#search-container').removeClass('animated fadeOut hidden').addClass('animated fadeIn');
-		jq('.toolbar-background').removeClass('filled');
-		jq('ion-toolbar').removeClass('big');
-		jq('#top-container').removeClass('animated fadeInDown').addClass('animated fadeOut').delay(300).addClass('hidden');
-		jq('#field-container').removeClass('animated fadeIn').addClass('animated fadeOut').delay(300).addClass('hidden');
-		jq('#time-container').removeClass('animated fadeInUp').addClass('animated fadeOut').delay(300).addClass('hidden');
+		// this.hideDouble();
 		jq('.tabbar').removeClass('animated fast slideOutDown').addClass('animated fast slideInUp');
+
+		jq('#top-container').removeClass('animated fast fadeInDown').addClass('animated fast fadeOut');
+		jq('#field-container').removeClass('animated fast fadeIn').addClass('animated fast fadeOut');
+		jq('#time-container').removeClass('animated fast fadeInUp').addClass('animated fast fadeOut');
+
+
+		setTimeout(function(){
+			jq('#search-container').removeClass('animated fast fadeOutUp').addClass('animated fast fadeInDown');
+			jq('.toolbar-background').removeClass('filled');
+			jq('ion-toolbar').removeClass('single big');
+			jq('#top-container').addClass('hidden');
+			jq('#field-container').addClass('hidden');
+			jq('#time-container').addClass('hidden');
+		},200);
 	}
 
-	toggle(option) {
-		console.log(option);
-		jq('#toggle-container>button').removeClass('selected');
-		jq('button#'+option).addClass('selected');
+	toggle() {
+		jq('#toggle-container>#selector').toggleClass('double');
+		jq('#toggle-container>button').toggleClass('selected');
+		if(jq('#toggle-container>#selector').hasClass('double')){
+			this.showDouble();
+			this.userFilters.type = "double";
+			if(this.userFilters.returningDateTime == "")
+				this.userFilters.returningDateTime = this.userFilters.dateTime;
+		}
+		else {
+			this.hideDouble();
+			this.userFilters.type = "single";
+		}
+	}
+
+	showDouble() {
+		jq('#time-container>#returning').removeClass('hidden');
+		jq('#time-container>#going>.caption').removeClass('hidden');
+		jq('ion-toolbar').removeClass('single').addClass('double');
+	}
+
+	hideDouble() {
+		jq('#time-container>#returning').addClass('hidden');
+		jq('#time-container>#going>.caption').addClass('hidden');
+		jq('ion-toolbar').removeClass('double').addClass('single');
+	}
+
+	validateDateTime(fieldID) {
+		if(this.userFilters.dateTime > this.userFilters.returningDateTime) {
+			if(fieldID == 'going') {
+				this.userFilters.returningDateTime = this.userFilters.dateTime;
+			}
+			if(fieldID == 'returning') {
+				this.userFilters.dateTime = this.userFilters.returningDateTime;
+			}
+		}
+	}
+	// Refresh search results base filter options in toolbar.
+	// Call this from refreshSearch().
+	// Is called upon change of filter options.
+	refreshSearch() {
+		console.log(this.userFilters);
+	}
+
+	LocalDate() {
+	    var now = new Date(),
+	        tzo = -now.getTimezoneOffset(),
+	        dif = tzo >= 0 ? '+' : '-',
+	        pad = function(num) {
+	            var norm = Math.abs(Math.floor(num));
+	            return (norm < 10 ? '0' : '') + norm;
+	        };
+	    return now.getFullYear()
+	        + '-' + pad(now.getMonth()+1)
+	        + '-' + pad(now.getDate())
+	        + 'T' + pad(now.getHours())
+	        + ':' + pad(now.getMinutes())
+	        + ':' + pad(now.getSeconds())
+	        + dif + pad(tzo / 60)
+	        + ':' + pad(tzo % 60);
 	}
 
 }

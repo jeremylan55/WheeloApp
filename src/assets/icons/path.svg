@@ -3,12 +3,7 @@
     <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
     <title>path</title>
     <desc>Created with Sketch.</desc>
-    <defs>
-        <circle id="path-1" cx="12" cy="10" r="10"></circle>
-        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="20" height="20" fill="white">
-            <use xlink:href="#path-1"></use>
-        </mask>
-    </defs>
+    <defs></defs>
     <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.64">
         <g id="round_search" transform="translate(-24.000000, -91.000000)">
             <g id="path">
@@ -20,7 +15,7 @@
                                 <rect id="Rectangle" fill-opacity="0" fill="#D8D8D8" x="0" y="0" width="24" height="24"></rect>
                             </g>
                         </g>
-                        <use id="Oval" stroke="#FFFFFF" mask="url(#mask-2)" stroke-width="4" xlink:href="#path-1"></use>
+                        <path d="M20,10 C20,5.581722 16.418278,2 12,2 C7.581722,2 4,5.581722 4,10 C4,14.418278 7.581722,18 12,18 C16.418278,18 20,14.418278 20,10 Z M2,10 C2,4.4771525 6.4771525,0 12,0 C17.5228475,0 22,4.4771525 22,10 C22,15.5228475 17.5228475,20 12,20 C6.4771525,20 2,15.5228475 2,10 Z" id="Oval" fill="#FFFFFF"></path>
                         <circle id="Oval" fill="#FFFFFF" cx="12.1666667" cy="10.1666667" r="4.16666667"></circle>
                         <circle id="Oval-2" fill="#FFFFFF" cx="12" cy="28" r="2"></circle>
                         <circle id="Oval-2" fill="#FFFFFF" cx="12" cy="36" r="2"></circle>

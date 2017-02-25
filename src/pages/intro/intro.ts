@@ -41,7 +41,7 @@ export class IntroPage {
 		let permissions = new Array();
 		let nav = this.navCtrl;
 		permissions = ['public_profile'];
-
+  
 		Facebook.login(permissions)
 		.then(function(response){
 			let userId = response.authResponse.userID;
@@ -76,12 +76,12 @@ export class IntroPage {
   hideSkip() {
     // shows skip button only on first slide.
     console.log('Slide changed');
-    let isFirst = this.slides.isBeginning();
-    if(isFirst) {
-      jq('#skip').fadeIn(150);
+    let isEnd = this.slides.isEnd();
+    if(isEnd) {
+      jq('#skip').fadeOut(150);
     }
     else {
-      jq('#skip').fadeOut(150);
+      jq('#skip').fadeIn(150);
     }
 
   }
