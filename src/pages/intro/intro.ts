@@ -41,7 +41,7 @@ export class IntroPage {
 		let permissions = new Array();
 		let nav = this.navCtrl;
 		permissions = ['public_profile'];
-  
+
 		Facebook.login(permissions)
 		.then(function(response){
 			let userId = response.authResponse.userID;
