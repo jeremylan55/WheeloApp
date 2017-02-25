@@ -33,7 +33,7 @@ export class HomePage {
 
 	ionViewDidLoad() {
 		let options: NativeTransitionOptions = {
-			"direction"      : "left",
+						"direction"      : "left",
       			"duration"       :  400, // in milliseconds (ms), default 400
       			"iosdelay"       :   60, // ms to wait for the iOS webview to update before animation kicks in, default 60
       			"androiddelay"   :  100
@@ -91,7 +91,7 @@ export class HomePage {
 		});
 	}
 
-	// Use http request to get next page in feed 
+	// Use http request to get next page in feed
 	getNextPage(){
 		var env = this;
 		console.log('NEXT URL: ' + env.nextPosts + '\n\n');
