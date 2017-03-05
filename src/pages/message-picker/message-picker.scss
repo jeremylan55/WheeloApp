@@ -1,0 +1,50 @@
+page-message-picker {
+  button.message {
+    white-space: normal !important;
+    height: inherit;
+    text-transform: none !important;
+    text-align: left !important;
+    padding: 16px !important;
+    margin-bottom: 16px !important;
+  }
+
+  button.message>.button-inner {
+    min-height: 44px !important;
+    height: auto !important;
+    position: relative;
+  }
+  .cell.border {
+    border-bottom: 0.5px solid color($colors, grey2) !important;
+    padding-bottom: 0px;
+  }
+
+  #custom-message-container {
+    padding-top: 0px;
+    padding-left: 16px;
+    padding-right: 8px;
+    padding-bottom: 16px;
+    height: 160px;
+  }
+
+  #custom-message {
+    height: 160px !important;
+    width: auto;
+    left: 0px;
+    right: 0px;
+    margin-left: 0px;
+    margin-right: 75px;
+    margin-bottom: -160px !important;
+  }
+
+  #custom-message>textarea {
+    height: 100% !important;
+    width: 100% !important;
+  }
+  #custom-message-container>button {
+    float: right;
+    margin: 0px;
+    bottom: 6px;
+  }
+
+
+}

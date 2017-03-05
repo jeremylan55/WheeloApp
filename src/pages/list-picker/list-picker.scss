@@ -2,22 +2,3 @@ ion-backdrop {
   visibility: visible !important;
   z-index: 0;
 }
-.modal-wrapper {
-  position: absolute;
-  top: auto !important;
-  height: 466px !important;
-  width: auto !important;
-  margin-left: 0px !important;
-  margin-right: 0px !important;
-  left: 0px !important;
-  right: 0px !important;
-  bottom: 0px;
-  box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.48);
-}
-
-page-list-picker {
-  ion-toolbar {
-    padding-top: 4px !important;
-    min-height: 44px !important;
-  }
-}

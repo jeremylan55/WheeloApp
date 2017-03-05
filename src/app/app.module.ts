@@ -9,7 +9,7 @@ import { SettingsPage } from '../pages/settings/settings';
 import { TabsPage } from '../pages/tabs/tabs';
 import { IntroPage} from '../pages/intro/intro';
 import { ListPickerPage} from '../pages/list-picker/list-picker';
-import { SearchPage} from '../pages/search/search';
+import { MessagePickerPage} from '../pages/message-picker/message-picker';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { SearchPage} from '../pages/search/search';
     SettingsPage,
     IntroPage,
     ListPickerPage,
-    SearchPage,
+    MessagePickerPage,
     TabsPage
   ],
   imports: [
@@ -37,7 +37,7 @@ import { SearchPage} from '../pages/search/search';
     SettingsPage,
     IntroPage,
     ListPickerPage,
-    SearchPage,
+    MessagePickerPage,
     TabsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Storage]
