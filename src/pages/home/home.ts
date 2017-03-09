@@ -21,6 +21,7 @@ let locations = ["waterloo","toronto","markham", "scarborough", "mississauga", "
 	templateUrl: 'home.html'
 })
 export class HomePage {
+	items: any[];
 	prevPosts: any; // Url for previous page of posts
 	nextPosts: any; // Url for next page of posts
 	curRawPosts: Array<any> = []; // Stores array of raw facebook posts. Post object = {message, updated_time, id}
@@ -57,6 +58,17 @@ export class HomePage {
 
 			});
 		this.loadRideShareFeed();
+		this.items = [];
+		for (let i = 0; i < 5; i++){
+			this.items.push({
+				text: 'Item' + i,
+				id: i
+			});
+		}
+	}
+
+	itemSelected(item){
+		alert(item.text);
 		console.log("TODAY IS :" + this.today);
 
 		Geolocation.getCurrentPosition().then((resp) => {
@@ -65,7 +77,6 @@ export class HomePage {
 		}).catch((error) => {
 		  console.log('Error getting location', error);
 		});
-
 	}
 
 	classifyDriver(cnxt, temp) {

@@ -66,8 +66,31 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content>
-  bbbe<br>bbbe<br>bbbe<br>bbbe<br>bbbe<br>bbbe<br>bbbe<br>
-  <button (click)="openMessagePicker()"> open message-picker</button>
+  <ion-list>
+    <div id = 'blank'>
+    </div>
+  <div id='post' *ngFor="let item of items">
+    <div id='profilepic'>
+      pic here
+    </div>
+    <div id="topbar">
+      <div id="leftdetail">
+        This hte location
+      </div>
+      <div id="rightdetail">
+        Price
+      </div>
+    </div>
+    <div id="name">
+      NAMEE PLACEHOLDER
+    </div>
+    <div id="leftdetail">
+      This For Calender
+    </div>
+    <div id="rightdetail">
+      <button ion-buton (click)="openMessagePicker()" outline>CHAT</button>
+    </div>
+  </div>
+</ion-list>
 </ion-content>
