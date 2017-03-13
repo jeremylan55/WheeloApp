@@ -4,6 +4,7 @@ import {NativePageTransitions, NativeTransitionOptions, Facebook, StatusBar, Key
 import {RideSharePost} from '../../app/models/rideSharePost';
 import { ListPickerPage } from '../list-picker/list-picker';
 import { MessagePickerPage } from '../message-picker/message-picker';
+import { PostPage } from '../post/post';
 import { SearchPage} from '../search/search';
 import jq from "jquery";
 import { Http } from '@angular/http';
@@ -41,7 +42,9 @@ export class HomePage {
 		"anyReturningTime" : false,
 		"returningDateTime" : ""
 	};
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public http: Http) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public http: Http) {
+		this.navCtrl = navCtrl;
+	}
 
 	ionViewDidLoad() {
 		let options: NativeTransitionOptions = {
@@ -212,7 +215,7 @@ export class HomePage {
 	// Call openMessagePicker()
 	// function onDidDismiss() is run when modal is closed.
 	 openMessagePicker() {
-		 let messagePicker = this.modalCtrl.create(MessagePickerPage, {userParams:locations});
+		 let messagePicker = this.modalCtrl.create(MessagePickerPage);
 		 messagePicker.onDidDismiss(data => {
 			 Keyboard.close();
 			 if(typeof(data) != "undefined" && data != null) {
@@ -325,6 +328,8 @@ export class HomePage {
 		console.log(this.userFilters);
 	}
 
+
+
 	LocalDate() {
 	    var now = new Date(),
 	        tzo = -now.getTimezoneOffset(),
@@ -341,6 +346,14 @@ export class HomePage {
 	        + ':' + pad(now.getSeconds())
 	        + dif + pad(tzo / 60)
 	        + ':' + pad(tzo % 60);
+	}
+
+
+	// Go to Post-Page containing details about post
+	// Call this from gotoPostPage().
+	// Is called upon change of filter options.
+	gotoPostPage() {
+		this.navCtrl.push(PostPage);
 	}
 
 }

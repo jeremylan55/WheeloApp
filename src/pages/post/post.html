@@ -4,15 +4,57 @@
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>post</ion-title>
-  </ion-navbar>
-
+<ion-header no-border>
+  <ion-toolbar class="light" no-border-top>
+    <ion-buttons left>
+      <button ion-button clear color="primary" class="back accent" navPop></button>
+    </ion-buttons>
+    <ion-buttons right>
+      <button ion-button clear color="primary">View</button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
 
+  <div id="itinerary-container">
+    <div id="pickup">
+      <div class="caption dark left">Leave</div>
+      <div class="location Header3 dark">{{rideSharePost.location}}</div>
+      <div class="time Header3 dark">{{rideSharePost.leaveTime}}</div>
+    </div>
+
+    <div id="arrow" class="icon  arrowForward dark">
+    </div>
+
+    <div id="destination">
+      <div class="caption dark left">Arrive</div>
+      <div class="location Header3 dark">{{rideSharePost.destination}}</div>
+      <div class="time Header3 dark">{{rideSharePost.arriveTime}}</div>
+    </div>
+  </div>
+
+
+  <div id="detailedPost-container">
+    <div class="icon sq48 profilePic"><img></div>
+    <div id="details">
+      <div class="body dark">{{rideSharePost.driverName}}</div>
+      <div class="caption dark left">{{rideSharePost.postTime}}</div>
+      <div class="caption bold dark left">{{rideSharePost.postPrice | currency:'USD':true}}</div>
+      <div class="body bold dark left">{{rideSharePost.postTitle}}</div>
+      <div class="caption dark left">{{rideSharePost.postContent}}</div>
+    </div>
+  </div>
+
+  <div id="map-container">
+
+  </div>
 </ion-content>
+<ion-footer no-border>
+<ion-toolbar>
+  <button ion-button id="preset-message" class="message FAB body light fullWidth light centreUI"  color="primary" (click)="openMessagePicker()">
+    Chat
+  </button>
+</ion-toolbar>
+</ion-footer>
