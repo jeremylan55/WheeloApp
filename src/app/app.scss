@@ -32,7 +32,7 @@ ion-datetime {
 
 // ====================================================Headers and Footers==================================================//
 .tabbar {
-  border-top: 1px solid #EFEFEF !important;
+  border-top: 1px solid color($colors, grey2) !important;
   background-color: #fff !important;
 }
 .tabs-ios .tab-button.icon-only {

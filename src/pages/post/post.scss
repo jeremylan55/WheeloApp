@@ -1,4 +1,10 @@
 page-post {
+
+  ion-header {
+    ion-toolbar {
+      border-bottom: 0.5px solid color($colors, grey2) !important;
+    }
+  }
   #itinerary-container {
     border-bottom: 0.5px solid color($colors, grey2);
     height: 111px;
@@ -62,7 +68,7 @@ page-post {
       }
 
       .body.bold {
-          margin-top: 14px;
+          margin-top: 16px;
       }
     }
   }
@@ -73,19 +79,18 @@ page-post {
     background-color: color($colors, grey2);
   }
   ion-footer {
-    height: 0px !important;
+    // height: 76px !important;
     ion-toolbar {
       position: absolute;
       bottom: 0px;
       height: 76px;
-      background: -webkit-linear-gradient(rgba(255, 255, 255, 0.0), rgba(255, 255, 255, 1.0));
-      background: -webkit-linear-gradient(rgba(255, 255, 255, 0.0), rgba(255, 255, 255, 1.0));
       .toolbar-background {
         visibility: hidden;
+        // background: color($colors, light);
       }
     }
   }
   .scroll-content {
-    margin-bottom: 51px !important;
+    // margin-bottom: 127px !important;
   }
 }
