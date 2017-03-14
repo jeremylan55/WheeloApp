@@ -231,7 +231,7 @@ export class HomePage {
 		jq('.split>#date>span>ion-datetime>.datetime-text').html('Any Time');
 		StatusBar.styleLightContent();
 		jq('#search-container').addClass('fade');
-		jq('.tabbar').removeClass('animated fast slideInUp').addClass('animated fast slideOutDown');
+		// jq('.tabbar').removeClass('animated fast slideInUp').addClass('animated fast slideOutDown');
 		jq('.toolbar-background').addClass('filled');
 		jq('ion-toolbar').addClass('big');
 
@@ -246,7 +246,7 @@ export class HomePage {
 	hideSearchToolbar() {
 		StatusBar.styleDefault();
 		this.hideDouble();
-		jq('.tabbar').removeClass('animated fast slideOutDown').addClass('animated fast slideInUp');
+		// jq('.tabbar').removeClass('animated fast slideOutDown').addClass('animated fast slideInUp');
 		jq('#search-container').removeClass('transparent');
 		jq('#top-container').removeClass('animated fast fadeInDown').addClass('animated fast fadeOut');
 		jq('#field-container').removeClass('animated fast fadeIn').addClass('animated fast fadeOut');
