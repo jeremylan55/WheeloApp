@@ -26,8 +26,9 @@ export class PostPage {
     "postPrice" : "15"
 	};
 
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController, public navParams: NavParams) {}
-
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController, public navParams: NavParams) {
+  }
+  
   ionViewDidLoad() {
     console.log('ionViewDidLoad PostPage');
   }

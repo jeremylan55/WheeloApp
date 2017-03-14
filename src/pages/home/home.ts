@@ -240,6 +240,11 @@ export class HomePage {
 			jq('#top-container').removeClass('animated fadeOut fast hidden').addClass('animated fast fadeInDown');
 			jq('#field-container').removeClass('animated fadeOut fast hidden').addClass('animated fast fadeIn');
 			jq('#time-container').removeClass('animated fadeOut fast hidden').addClass('animated fast fadeInUp');
+			setTimeout(function(){
+				jq('#top-container').removeClass('animated fast fadeInDown');
+				jq('#field-container').removeClass('animated fast fadeIn');
+				jq('#time-container').removeClass('animated fast fadeInUp');
+			},300)
 		},200);
 	}
 
