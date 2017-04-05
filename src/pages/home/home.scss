@@ -1,4 +1,4 @@
-page-home {
+zpage-home {
   #search {
     width: 100%;
     left: 0px;
@@ -314,7 +314,7 @@ page-home {
     height: 40px;
     width: calc(100% - 64px);
     float: left;
-    border-bottom-style: dashed;
+    border-bottom:2px dashed #999;
   }
   #calender{
     font-family: lato-regular;
