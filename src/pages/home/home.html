@@ -32,11 +32,15 @@
       <div class="caption light hidden">Going</div>
       <div class="split">
         <button ion-button color="frost" id="date" class="left" (click)="buildDays()">
-          <ion-datetime displayFormat="DDD DD MMM YY" pickerFormat="DDD MMM YY" [(ngModel)]="userFilters.dateTime" min="{{today}}" yearValues="{{years}}" (ionChange)="validateDateTime('going');refreshSearch()"></ion-datetime>
-        </button>
-        <div class="vert-sep28"></div>
-        <button ion-button color="frost" id="time" class="left" (click)="buildDays()">
-          <ion-datetime displayFormat="hh:mm A" pickerFormat="	hh:mm A" [(ngModel)]="userFilters.dateTime" min="{{today}}" (ionChange)="validateDateTime('going');refreshSearch()"></ion-datetime>
+          <ion-datetime
+            displayFormat="DDD D MMM YYYY - hh:mm A"
+            pickerFormat="D MMM YYYY hh A"
+            [(ngModel)]="userFilters.dateTime"
+            min="{{today}}" yearValues="{{years}}"
+            (ionChange)="validateDateTime('going');refreshSearch()"
+            (ionCancel)="anyTime('going');refreshSearch()"
+            cancelText="Any Time"
+          ></ion-datetime>
         </button>
       </div>
     </div>
@@ -45,11 +49,15 @@
       <div class="caption light">Returning</div>
       <div class="split">
         <button ion-button color="frost" id="date" class="left" (click)="buildDays()">
-          <ion-datetime displayFormat="DDD DD MMM YY" pickerFormat="DD MMM YY" [(ngModel)]="userFilters.returningDateTime" min="{{today}}" yearValues="{{years}}" (ionChange)="validateDateTime('returning');refreshSearch()"></ion-datetime>
-        </button>
-        <div class="vert-sep28"></div>
-        <button ion-button color="frost" id="time" class="left" (click)="buildDays()">
-          <ion-datetime displayFormat="hh:mm A" pickerFormat="	hh:mm A" [(ngModel)]="userFilters.returningDateTime" min="{{today}}" (ionChange)="validateDateTime('returning');refreshSearch()"></ion-datetime>
+          <ion-datetime
+            displayFormat="DDD D MMM YYYY - hh:mm A"
+            pickerFormat="D MMM YYYY hh A"
+            [(ngModel)]="userFilters.returningDateTime"
+            min="{{today}}" yearValues="{{years}}"
+            (ionChange)="validateDateTime('returning');refreshSearch()"
+            (ionCancel)="anyTime('returning');refreshSearch()"
+            cancelText="Any Time"
+          ></ion-datetime>
         </button>
       </div>
     </div>
@@ -62,7 +70,7 @@
   <ion-list>
     <div id = 'blank'>
     </div>
-  <div id='post' *ngFor="let item of items" (click)="itemSelected(item)">
+  <div id='post' *ngFor="let item of items">
     <div id='profilepic'>
       <img align="center" src="https://s-media-cache-ak0.pinimg.com/originals/57/43/47/574347ddf6be999e0027de121104f2ff.png">
     </div>
@@ -96,7 +104,7 @@
       </div>
       <div class="rightdetail">
         <div id="buttonwrap">
-          <button ion-button block outline (click)="buttonpressed()">Chat</button>
+          <button ion-button block outline (click)="openMessagePicker()">Chat</button>
         </div>
       </div>
     </div>

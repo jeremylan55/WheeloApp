@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="20px" height="74px" viewBox="0 0 20 74" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="20px" height="72px" viewBox="0 0 20 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
     <title>path</title>
     <desc>Created with Sketch.</desc>
-    <defs></defs>
+    <defs>
+        <circle id="path-1" cx="12" cy="62" r="8"></circle>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="16" height="16" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
     <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.64">
-        <g id="round_search" transform="translate(-24.000000, -91.000000)">
+        <g id="single_search" transform="translate(-24.000000, -88.000000)">
             <g id="path">
-                <g transform="translate(22.000000, 91.000000)">
-                    <g id="Group">
-                        <g id="icon_pin_light" transform="translate(0.000000, 50.000000)">
-                            <g id="Group">
-                                <path d="M6.70900781,11.0483438 C6.22740937,10.1798906 5.953125,9.18079687 5.953125,8.1181875 C5.953125,4.77595313 8.66659219,2.0625 12.0088125,2.0625 C15.3510469,2.0625 18.0645469,4.77595313 18.0645469,8.1181875 C18.0645469,9.12103125 17.8202344,10.0672031 17.388,10.9005 L17.388,10.9005 L17.3872969,10.9017656 C17.3693437,10.9364063 17.3510625,10.9708125 17.3324531,11.0050313 L11.9975625,21.046875 L6.70900781,11.0483438 Z M12.0088125,5.28201562 C13.5741562,5.28201562 14.8449844,6.55289063 14.8449844,8.1181875 C14.8449844,9.68353125 13.5741562,10.9543594 12.0088125,10.9543594 C10.4435016,10.9543594 9.17265938,9.68353125 9.17265938,8.1181875 C9.17265938,6.55289063 10.4435016,5.28201562 12.0088125,5.28201562 L12.0088125,5.28201562 Z" id="Page-1" fill="#FFFFFF"></path>
-                                <rect id="Rectangle" fill-opacity="0" fill="#D8D8D8" x="0" y="0" width="24" height="24"></rect>
-                            </g>
-                        </g>
-                        <path d="M20,10 C20,5.581722 16.418278,2 12,2 C7.581722,2 4,5.581722 4,10 C4,14.418278 7.581722,18 12,18 C16.418278,18 20,14.418278 20,10 Z M2,10 C2,4.4771525 6.4771525,0 12,0 C17.5228475,0 22,4.4771525 22,10 C22,15.5228475 17.5228475,20 12,20 C6.4771525,20 2,15.5228475 2,10 Z" id="Oval" fill="#FFFFFF"></path>
-                        <circle id="Oval" fill="#FFFFFF" cx="12.1666667" cy="10.1666667" r="4.16666667"></circle>
-                        <circle id="Oval-2" fill="#FFFFFF" cx="12" cy="28" r="2"></circle>
-                        <circle id="Oval-2" fill="#FFFFFF" cx="12" cy="36" r="2"></circle>
-                        <circle id="Oval-2" fill="#FFFFFF" cx="12" cy="44" r="2"></circle>
+                <g transform="translate(22.000000, 88.000000)">
+                    <g id="Group" stroke-width="1" fill-rule="evenodd" fill="#FFFFFF">
+                        <path d="M20,10 C20,5.581722 16.418278,2 12,2 C7.581722,2 4,5.581722 4,10 C4,14.418278 7.581722,18 12,18 C16.418278,18 20,14.418278 20,10 Z M2,10 C2,4.4771525 6.4771525,0 12,0 C17.5228475,0 22,4.4771525 22,10 C22,15.5228475 17.5228475,20 12,20 C6.4771525,20 2,15.5228475 2,10 Z" id="Oval"></path>
+                        <circle id="Oval" cx="12.1666667" cy="10.1666667" r="4.16666667"></circle>
+                        <circle id="Oval-2" cx="12" cy="28" r="2"></circle>
+                        <circle id="Oval-2" cx="12" cy="36" r="2"></circle>
+                        <circle id="Oval-2" cx="12" cy="44" r="2"></circle>
                     </g>
+                    <use id="Oval-3" stroke="#FFFFFF" mask="url(#mask-2)" stroke-width="4" xlink:href="#path-1"></use>
                 </g>
             </g>
         </g>

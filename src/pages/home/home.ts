@@ -3,6 +3,7 @@ import { NavController, NavParams, ModalController} from 'ionic-angular';
 import {NativePageTransitions, NativeTransitionOptions, Facebook, StatusBar, Keyboard, Geolocation} from 'ionic-native';
 import {RideSharePost} from '../../app/models/rideSharePost';
 import { ListPickerPage } from '../list-picker/list-picker';
+import { MessagePickerPage } from '../message-picker/message-picker';
 import { SearchPage} from '../search/search';
 import jq from "jquery";
 import { Http } from '@angular/http';
@@ -35,7 +36,9 @@ export class HomePage {
 		"type" : "single", // can be "single" or "double"
 		"destination" : "",
 		"location" : "From",
+		"anyTime" : true,
 		"dateTime" : this.myDate.toString(),
+		"anyReturningTime" : false,
 		"returningDateTime" : ""
 	};
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public http: Http) {}
@@ -158,13 +161,15 @@ export class HomePage {
 		let lastEntry = (env.displayedPosts.length == 0) ? 0 : env.displayedPosts.length - 1;
 		let len =  env.curRawPosts.length;
 		env.items = [];
-
+		let post: any;
 		console.log('Lazy Loading ...');
 		for (let i = index; i < env.maxNumberLoadedPosts || i < len; i++){
 
 			// Append new RideSharePost object to displayed objects
-			// TODO: ONLY append posts that are marked as drivers
-			env.displayedPosts.push(new RideSharePost(lst[i].message, lst[i].id, lst[i].updated_time));
+			post = new RideSharePost(lst[i].message, lst[i].id, lst[i].updated_time);
+			// label locations here
+			post.findLocations();
+			env.displayedPosts.push(post);
 			env.items.push({
 					text: 'Item' + i,
 					id: i,
@@ -193,7 +198,6 @@ export class HomePage {
 							dp: re.picture.data.url
 						});
 					lastEntry += 1;
-
 				}, function(error){
 
 					console.log('PICTURE: ' + error);
@@ -211,8 +215,8 @@ export class HomePage {
 
 
  // Opens list picker and fill list using array "locations".
- // Call openListPicker(idOfField)
- // function .onDidDismiss(); is run when modal is closed.
+ // Call openListPicker(fieldID)
+ // function onDidDismiss() is run when modal is closed.
   openListPicker(fieldID) {
     let listPicker = this.modalCtrl.create(ListPickerPage, {userParams:locations});
     listPicker.onDidDismiss(data => {
@@ -227,38 +231,56 @@ export class HomePage {
   }
 
 
+	// Opens message picker
+	// Call openMessagePicker()
+	// function onDidDismiss() is run when modal is closed.
+	 openMessagePicker() {
+		 let messagePicker = this.modalCtrl.create(MessagePickerPage, {userParams:locations});
+		 messagePicker.onDidDismiss(data => {
+			 Keyboard.close();
+			 if(typeof(data) != "undefined" && data != null) {
+
+			 }
+		 });
+		 messagePicker.present();
+	 }
+
+
+
 	showSearchToolbar() {
+		jq('.split>#date>span>ion-datetime>.datetime-text').html('Any Time');
 		StatusBar.styleLightContent();
-		jq('#search-container').addClass('animated fadeOutUp fast');
+		jq('#search-container').addClass('fade');
 		jq('.tabbar').removeClass('animated fast slideInUp').addClass('animated fast slideOutDown');
 		jq('.toolbar-background').addClass('filled');
 		jq('ion-toolbar').addClass('big');
 
 		setTimeout(function(){
-			jq('#top-container').removeClass('animated fadeOut fast hidden').addClass('animated fast fadeIn');
+			jq('#search-container').addClass('transparent');
+			jq('#top-container').removeClass('animated fadeOut fast hidden').addClass('animated fast fadeInDown');
 			jq('#field-container').removeClass('animated fadeOut fast hidden').addClass('animated fast fadeIn');
-			jq('#time-container').removeClass('animated fadeOut fast hidden').addClass('animated fast fadeIn');
+			jq('#time-container').removeClass('animated fadeOut fast hidden').addClass('animated fast fadeInUp');
 		},200);
 	}
 
 	hideSearchToolbar() {
 		StatusBar.styleDefault();
-		// this.hideDouble();
+		this.hideDouble();
 		jq('.tabbar').removeClass('animated fast slideOutDown').addClass('animated fast slideInUp');
-
+		jq('#search-container').removeClass('transparent');
 		jq('#top-container').removeClass('animated fast fadeInDown').addClass('animated fast fadeOut');
 		jq('#field-container').removeClass('animated fast fadeIn').addClass('animated fast fadeOut');
 		jq('#time-container').removeClass('animated fast fadeInUp').addClass('animated fast fadeOut');
 
 
 		setTimeout(function(){
-			jq('#search-container').removeClass('animated fast fadeOutUp').addClass('animated fast fadeInDown');
+			jq('#search-container').removeClass('fade');
 			jq('.toolbar-background').removeClass('filled');
 			jq('ion-toolbar').removeClass('single big');
 			jq('#top-container').addClass('hidden');
 			jq('#field-container').addClass('hidden');
 			jq('#time-container').addClass('hidden');
-		},200);
+		},250);
 	}
 
 	toggle() {
@@ -289,15 +311,36 @@ export class HomePage {
 	}
 
 	validateDateTime(fieldID) {
-		if(this.userFilters.dateTime > this.userFilters.returningDateTime) {
-			if(fieldID == 'going') {
+
+		if(fieldID == 'going') {
+			if(this.userFilters.returningDateTime < this.userFilters.dateTime && !this.userFilters.anyReturningTime) {
+				console.log('invalid going changing returning');
 				this.userFilters.returningDateTime = this.userFilters.dateTime;
 			}
-			if(fieldID == 'returning') {
+			this.userFilters.anyTime = false;
+		}
+		if(fieldID == 'returning') {
+			if(this.userFilters.returningDateTime < this.userFilters.dateTime && !this.userFilters.anyTime) {
+				console.log('invalid returning changing going');
 				this.userFilters.dateTime = this.userFilters.returningDateTime;
 			}
+			this.userFilters.anyReturningTime = false;
 		}
 	}
+
+
+	anyTime(fieldID) {
+		if(fieldID == 'going') {
+			this.userFilters.anyTime = true;
+		}
+		if(fieldID == 'returning') {
+			this.userFilters.anyReturningTime = true;
+		}
+		console.log('anyTime');
+		jq('#'+fieldID+'>.split>#date>span>ion-datetime>.datetime-text').html('Any Time');
+	}
+
+
 	// Refresh search results base filter options in toolbar.
 	// Call this from refreshSearch().
 	// Is called upon change of filter options.
@@ -317,7 +360,7 @@ export class HomePage {
 	        + '-' + pad(now.getMonth()+1)
 	        + '-' + pad(now.getDate())
 	        + 'T' + pad(now.getHours())
-	        + ':' + pad(now.getMinutes())
+	        + ':00' // cancel minutes -> hh:00
 	        + ':' + pad(now.getSeconds())
 	        + dif + pad(tzo / 60)
 	        + ':' + pad(tzo % 60);

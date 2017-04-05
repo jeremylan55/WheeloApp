@@ -13,26 +13,34 @@ zpage-home {
   }
 
   .toolbar-background {
-    -webkit-transition: 0.3s; /* Safari */
-    transition: 0.3s;
+    -webkit-transition: 0.3s ease-in; /* Safari */
+    transition: 0.3s ease-in;
     background: color($colors, secondary) !important;
     height: 0%;
   }
 
   .toolbar-background.filled {
     height: 100%;
-    -webkit-transition: 0.3s; /* Safari */
-    transition: 0.3s;
+    -webkit-transition: 0.3s ease-out; /* Safari */
+    transition: 0.3s ease-out;
   }
   ion-toolbar {
     -webkit-transition: 0.3s; /* Safari */
     transition: 0.3s;
-    height: 80px;
-    overflow: hidden;
+    overflow: none;
   }
+
+  ion-toolbar.toolbar-md {
+    height: 66px;
+  }
+
+  ion-toolbar.toolbar-ios {
+    height: 96px;
+  }
+
   ion-toolbar.toolbar-md.big {
-    -webkit-transition: 0.3s; /* Safari */
-    transition: 0.3s;
+    -webkit-transition: 0.3s ease-out; /* Safari */
+    transition: 0.3s ease-out;
     height: 216px;
     padding: 0px;
   }
@@ -52,8 +60,8 @@ zpage-home {
   }
 
   ion-toolbar.big {
-    -webkit-transition: 0.3s; /* Safari */
-    transition: 0.3s;
+    -webkit-transition: 0.3s ease-out; /* Safari */
+    transition: 0.3s ease-out;
     height: 236px;
     padding: 0px;
   }
@@ -70,6 +78,14 @@ zpage-home {
     transition: 0s;
     height: 236px;
     padding: 0px;
+  }
+
+  ion-content.content-ios>div {
+    margin-top: 20px !important;
+  }
+
+  ion-content.content-md>div {
+    margin-top: 0px !important;
   }
 
   .toolbar-content-ios {
@@ -98,14 +114,46 @@ zpage-home {
     margin-left: 48px;
   }
   #search-container {
+    z-index: 99999;
     width: auto;
     height: 52px;
+    margin-top: 0px;
     margin-left: 16px !important;
     margin-right: 16px !important;
     padding-top: 4px;
     left: 0px !important;
     right: 0px !important;
     position: absolute;
+    opacity: 1.0;
+    -webkit-transition: 0.2s ease-out; /* Safari */
+    transition: 0.2s ease-out;
+  }
+
+  #search-container.fade {
+    -webkit-transition: 0.2s ease-out; /* Safari */
+    transition: 0.2s ease-out;
+    margin-top: 104px;
+    margin-left: 56px !important;
+    margin-right: 16px !important;
+    left: 0px !important;
+    right: 0px !important;
+    position: absolute;
+    border-radius: 4px;
+  }
+
+  #search-container.transparent {
+    -webkit-transition: 0.2s; /* Safari */
+    transition: 0.2s;
+    -webkit-transition-delay: 0.2s; /* Safari */
+    transition-delay: 0.2s;
+    opacity: 0.0;
+  }
+
+  #search-container.fade>button {
+    -webkit-transition: 0.2s; /* Safari */
+    transition: 0.2s;
+    background-color: color($colors,frost);
+    box-shadow: 0px 0px 1px 0px rgba(64,19,0,0.12);
   }
 
   #field-container {
@@ -248,7 +296,7 @@ zpage-home {
   }
   .split>button {
     float: left;
-    width: 50%;
+    width: 100%;
     margin: 0px;
     padding: 0px;
     height: 100%;
@@ -370,16 +418,16 @@ zpage-home {
     font-size: 14px;
   }
   button#date {
-    background-image: url('../assets/icons/icon_cal_light.svg');
-    background-repeat: no-repeat;
-    background-position: 24px center;
-  }
-
-  button#time {
     background-image: url('../assets/icons/icon_clock_light.svg');
     background-repeat: no-repeat;
     background-position: 24px center;
   }
+
+  // button#time {
+  //   background-image: url('../assets/icons/icon_clock_light.svg');
+  //   background-repeat: no-repeat;
+  //   background-position: 24px center;
+  // }
 
   #toggle-container>button.activated {
     background-color: rgba(255,255,255,0.18);

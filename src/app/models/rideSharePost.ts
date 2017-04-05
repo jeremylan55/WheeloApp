@@ -1,13 +1,13 @@
 export class RideSharePost {
 	name: string;
-	userID: number;
+	userID: string;
 	profilePictureURL: string;
 	driver: boolean = true;
 	destination: string;
 	origin: string;
 	depatureTime: string; // formatted dd-hh-mm
 	roundTrip: boolean = false;
-
+	locations: Array<any> = [];
 	constructor(public postText: string , public id: string, public updated_time: string){}
 
 	setName(name){
@@ -45,21 +45,21 @@ export class RideSharePost {
 	*/
 	static classifyDriverPost(str){
 		var count = 0;
-		var driver_regexs = [/driving/i, /\$/, /offering/i];
+		var driver_regexs = [/driving/i, /\$/, /offering/i, /providing/i];
 		var rider_regexs = [/looking/i, /\?/];
 
 		if (driver_regexs[0].test(str)) count += 2;
 		if(driver_regexs[1].test(str)) count += 1;
-		if (driver_regexs[2].test(str)) count += 1;
+		if (driver_regexs[2].test(str) || driver_regexs[3].test(str)) count += 1;
 		if (rider_regexs[0].test(str)) count -= 2;
 		if (rider_regexs[1].test(str)) count -= 1;
 
 		if (count > 0) {
-			console.log("DRIVER POST!!! : " + str);
+			//console.log("DRIVER POST!!! : " + str);
 			return 1;	
 		}
 		if (count < 0) {
-			console.log("RIDER POST!!! : " + str);
+			//console.log("RIDER POST!!! : " + str);
 			return -1;
 		}
 		if (count == 0) {
@@ -69,6 +69,18 @@ export class RideSharePost {
 
 	}
 
+	/*
+	*	Find locations within message
+	*
+	*/
+	findLocations() {
+		var table = /toronto|markham|waterloo|\sloo|BK|mississauga|scarborough|square one|yorkdale|bk plaza|richmond hill|downtown toronto|stc|pearson|york|ottawa|montreal|london|thornhill|dt toronto|dt|vaughn|fairview mall|fairview|finch station|north york|kingston|hamilton|Laurier/ig
+		let re: any;
+
+		while (re = table.exec(this.postText)) {
+			this.locations.push(re);
+		}		
+	}
 	/*
 	* This function finds the Origin and Destination in a Facebook post, assuming there are both
 	* of these things in the post. First, the cities will be found in the post using regex's that search 
