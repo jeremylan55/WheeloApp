@@ -154,13 +154,15 @@ export class HomePage {
 		let params = new Array();
 		let lastEntry = (env.displayedPosts.length == 0) ? 0 : env.displayedPosts.length - 1;
 		let len =  env.curRawPosts.length;
-
+		let post: any;
 		console.log('Lazy Loading ...');
 		for (let i = index; i < env.maxNumberLoadedPosts || i < len; i++){
 
 			// Append new RideSharePost object to displayed objects
-			// TODO: ONLY append posts that are marked as drivers
-			env.displayedPosts.push(new RideSharePost(lst[i].message, lst[i].id, lst[i].updated_time));
+			post = new RideSharePost(lst[i].message, lst[i].id, lst[i].updated_time);
+			// label locations here
+			post.findLocations();
+			env.displayedPosts.push(post);
 
 			// We query facebook for the owner of the facebook post and get their name and userID
 			Facebook.api(lst[i].id + '?fields=from', params)
@@ -175,7 +177,6 @@ export class HomePage {
 
 					env.displayedPosts[lastEntry].setProfilePictureURL(re.picture.data.url);
 					lastEntry += 1;
-
 				}, function(error){
 
 					console.log('PICTURE: ' + error);
