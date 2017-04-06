@@ -77,11 +77,15 @@
     <div id="topbar">
       <div class="leftdetail">
         <p class="locationlabel">
-        This the location
+        From here {{item.locationfrom}}
+        </p>
+        <p class="locationlabel">
+        To here location {{item.locationto}}
         </p>
       </div>
       <div class="rightdetail">
         <p class="locationlabel" style="position: absolute; right:16px">
+          {{item.price}}
           $15
         </p>
       </div>
@@ -90,15 +94,18 @@
       <div class="leftdetail">
         <div id="name">
           Person Name
+          {{item.name}}
         </div>
         <div id="calender">
           <img scr="img/iconCal.png">
           <p>
-          This For
+            {{item.date}}
+            This For
           </p>
           <img scr="img/iconClock.png">
           <p>
-          Calender
+            {{item.clock}}
+            Calender
           </p>
         </div>
       </div>
