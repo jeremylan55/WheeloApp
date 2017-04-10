@@ -179,6 +179,7 @@ export class HomePage {
 			console.log("MESSAGE is "+lst[i].message);
 			console.log("ID is "+lst[i].id);
 			console.log("updated time is "+lst[i].updated_time);
+			post.find_origin_destination(post.postText);
 			// We query facebook for the owner of the facebook post and get their name and userID
 			Facebook.api(lst[i].id + '?fields=from', params)
 			.then(function(result){
