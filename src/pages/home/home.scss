@@ -356,25 +356,33 @@ page-home {
     float: right;
   }
   #topbar{
-    font-weight: bold;
-    font-family: lato-regular;
-    font-size: 14px;
+    // font-weight: bold;
+    // font-family: lato-regular;
+    // font-size: 14px;
     height: 40px;
     width: calc(100% - 64px);
     float: left;
     border-bottom: 1px dashed color($colors, grey2);
   }
   #calender{
-    font-family: lato-regular;
-    font-size: 14px;
-    color: #798491;
+    // font-family: lato-regular;
+    // font-size: 14px;
+    // color: #798491;
   }
 
-  #calender>p{
-    display: inline;
+  #calender>p {
+    float: left;
     margin-right: 16px;
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
-  #rightdetail{
+
+  #calender>ion-icon{
+    float: left;
+    margin-right: 4px;
+  }
+
+  .rightdetail{
     float: right;
     padding-right: 10px;
     vertical-align: middle;
@@ -393,13 +401,14 @@ page-home {
   .leftdetail>ion-icon{
     float: left;
     margin-left: 4px;
+    margin-top: 4px;
     margin-right: 4px;
   }
 
   .locationlabel{
     vertical-align:middle;
     height: 24px;
-    padding-top: 2px;
+    padding-top: 8px;
     margin-top: 0px;
     margin-bottom: 0px;
   }
@@ -423,11 +432,12 @@ page-home {
     width: 100%;
     float: left;
     display: inline-block;
-    height: 32px;
-    line-height: 25px;
-    font-family: lato-regular;
-    color: #798491;
-    font-size: 14px;
+    height: 24px;
+    // line-height: 25px;
+    margin-top: 6px;
+    // font-family: lato-regular;
+    // color: #798491;
+    // font-size: 14px;
   }
   button#date {
     background-image: url('../assets/icons/icon_clock_light.svg');

@@ -258,8 +258,9 @@ button[color="frost"].activated {
 
 // ***********************************************General*************************************************//
 .icon.sq16 {
-  width: 16px;
-  height: 16px;
+  width: 19px;
+  height: 19px;
+  background-size: 16px 16px;
 }
 
 .icon.sq24 {
@@ -283,14 +284,12 @@ button[color="frost"].activated {
 }
 .icon.icon_cal.dark {
   background-image: url('../assets/icons/icon_cal_dark.svg') !important;
-  background-size: 100% 100%;
   background-repeat: no-repeat !important;
   background-position: center center !important;
 }
 
 .icon.icon_clock.dark {
   background-image: url('../assets/icons/icon_clock_dark.svg') !important;
-  background-size: 100% 100%;
   background-repeat: no-repeat !important;
   background-position: center center !important;
 }

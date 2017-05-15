@@ -69,11 +69,11 @@
 <ion-content>
   <div class="wheeloPosts">
   <ion-list class="single">
-  <div id='post' *ngFor="let item of items">
+  <div id='post' *ngFor="let item of items" (click)="gotoPostPage()">
     <div id='profilepic'>
       <img align="center" src="https://s-media-cache-ak0.pinimg.com/originals/57/43/47/574347ddf6be999e0027de121104f2ff.png">
     </div>
-    <div id="topbar">
+    <div id="topbar" class="body dark bold">
       <div class="leftdetail">
         <p class="locationlabel">
         From here {{item.locationfrom}}
@@ -90,7 +90,7 @@
         </p>
       </div>
     </div>
-    <div id="bottombar">
+    <div id="bottombar" class="caption dark left">
       <div class="leftdetail">
         <div id="name">
           {{item.name}}
