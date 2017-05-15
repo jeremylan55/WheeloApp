@@ -247,6 +247,7 @@ export class HomePage {
 			 }
 		 });
 		 messagePicker.present();
+		 event.stopPropagation();
 	 }
 
 
