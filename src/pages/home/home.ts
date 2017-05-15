@@ -237,9 +237,15 @@ export class HomePage {
 
 		setTimeout(function(){
 			jq('#search-container').addClass('transparent');
-			jq('#top-container').removeClass('animated fadeOut fast hidden').addClass('animated fast fadeInDown');
-			jq('#field-container').removeClass('animated fadeOut fast hidden').addClass('animated fast fadeIn');
-			jq('#time-container').removeClass('animated fadeOut fast hidden').addClass('animated fast fadeInUp');
+			if( jq('#top-container').hasClass('hidden')) {
+				jq('#top-container').removeClass('animated fadeOut fast hidden').addClass('animated fast fadeInDown');
+			}
+			if( jq('#field-container').hasClass('hidden')) {
+				jq('#field-container').removeClass('animated fadeOut fast hidden').addClass('animated fast fadeIn');
+			}
+			if( jq('#time-container').hasClass('hidden')) {
+				jq('#time-container').removeClass('animated fadeOut fast hidden').addClass('animated fast fadeInUp');
+			}
 			setTimeout(function(){
 				jq('#top-container').removeClass('animated fast fadeInDown');
 				jq('#field-container').removeClass('animated fast fadeIn');
