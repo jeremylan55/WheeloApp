@@ -28,6 +28,7 @@ export class IntroPage {
 // Skips the facebook oath and jumps to Home page
 // Use this login for DEVELOPMENT ONLY!
 // Call this from login()
+
 // login(){
 //   let nav = this.navCtrl;
 //   nav.setRoot(TabsPage);
