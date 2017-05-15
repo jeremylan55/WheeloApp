@@ -62,16 +62,16 @@ export class HomePage {
 			});
 		this.loadRideShareFeed();
 		this.items = [];
-		for (let i = 0; i < 5; i++){
+		for( var i = 0; i < 5; i++){
 			this.items.push({
-				text: 'Item' + i,
-				id: i
-			});
+					text: 'Item' + i,
+					id: i,
+				});
 		}
 	}
 
 	itemSelected(item){
-		alert(item.text);
+		alert(item.text + item.message + item.name + item.date + item.dp);
 		console.log("TODAY IS :" + this.today);
 
 		Geolocation.getCurrentPosition().then((resp) => {
@@ -80,6 +80,12 @@ export class HomePage {
 		}).catch((error) => {
 		  console.log('Error getting location', error);
 		});
+	}
+
+	buttonpressed(){
+		alert("BUTTON PRESSED");
+		console.log("TODAY IS :" + this.today);
+		event.stopPropagation();
 	}
 
 	classifyDriver(cnxt, temp) {
@@ -157,28 +163,45 @@ export class HomePage {
 		let params = new Array();
 		let lastEntry = (env.displayedPosts.length == 0) ? 0 : env.displayedPosts.length - 1;
 		let len =  env.curRawPosts.length;
-
+		env.items = [];
+		let post: any;
 		console.log('Lazy Loading ...');
 		for (let i = index; i < env.maxNumberLoadedPosts || i < len; i++){
 
 			// Append new RideSharePost object to displayed objects
-			// TODO: ONLY append posts that are marked as drivers
-			env.displayedPosts.push(new RideSharePost(lst[i].message, lst[i].id, lst[i].updated_time));
-
+			post = new RideSharePost(lst[i].message, lst[i].id, lst[i].updated_time);
+			// label locations here
+			post.findLocations();
+			env.displayedPosts.push(post);
+			env.items.push({
+					text: 'Item' + i,
+					id: i,
+					message: lst[i].message,
+					date: lst[i].updated_time
+				});
+			console.log("MESSAGE is "+lst[i].message);
+			console.log("ID is "+lst[i].id);
+			console.log("updated time is "+lst[i].updated_time);
+			post.find_origin_destination(post.postText);
 			// We query facebook for the owner of the facebook post and get their name and userID
 			Facebook.api(lst[i].id + '?fields=from', params)
 			.then(function(result){
 
 				env.displayedPosts[lastEntry].setUserID(result.from.id);
 				env.displayedPosts[lastEntry].setName(result.from.name);
-
+				env.items.push({
+						name: result.from.name
+					});
+				console.log("NAME IS "+result.from.name);
 				// We query facebook again to get the poster's profile picture url
 				Facebook.api(result.from.id +'?fields=picture', params)
 				.then(function(re){
 
 					env.displayedPosts[lastEntry].setProfilePictureURL(re.picture.data.url);
+					env.items.push({
+							dp: re.picture.data.url
+						});
 					lastEntry += 1;
-
 				}, function(error){
 
 					console.log('PICTURE: ' + error);
@@ -191,6 +214,7 @@ export class HomePage {
 		}
 		// Update the latest indexLoaded from curRawPosts
 		this.indexLoaded = (env.maxNumberLoadedPosts + this.indexLoaded >= len) ? len - 1 : env.maxNumberLoadedPosts + this.indexLoaded;
+		console.log("THE ITEM IS "+env.items);
 	}
 
 

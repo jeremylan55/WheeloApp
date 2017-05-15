@@ -67,30 +67,60 @@
 </ion-header>
 
 <ion-content>
+<<<<<<< HEAD
   <ion-list>
     <div id = 'blank'>
     </div>
   <div id='post' *ngFor="let item of items" (click)="gotoPostPage()">
+=======
+  <div class="wheeloPosts">
+  <ion-list class="single">
+  <div id='post' *ngFor="let item of items">
+>>>>>>> master
     <div id='profilepic'>
-      pic here
+      <img align="center" src="https://s-media-cache-ak0.pinimg.com/originals/57/43/47/574347ddf6be999e0027de121104f2ff.png">
     </div>
     <div id="topbar">
-      <div id="leftdetail">
-        This hte location
+      <div class="leftdetail">
+        <p class="locationlabel">
+        From here {{item.locationfrom}}
+        </p>
+        <ion-icon class="icon_arrowForward black icon sq24"></ion-icon>
+        <p class="locationlabel">
+        To here location {{item.locationto}}
+        </p>
       </div>
-      <div id="rightdetail">
-        Price
+      <div class="rightdetail">
+        <p class="locationlabel" style="position: absolute; right:16px">
+          {{item.price}}
+          $15
+        </p>
       </div>
     </div>
-    <div id="name">
-      NAMEE PLACEHOLDER
-    </div>
-    <div id="leftdetail">
-      This For Calender
-    </div>
-    <div id="rightdetail">
-      <button ion-buton (click)="openMessagePicker()" outline>CHAT</button>
+    <div id="bottombar">
+      <div class="leftdetail">
+        <div id="name">
+          {{item.name}}
+          John Doe
+        </div>
+        <div id="calender">
+          <ion-icon class="icon_cal dark icon sq16 secondary"></ion-icon>
+          <p>
+            {{item.date}}
+          </p>
+          <ion-icon class="icon_clock dark icon sq16 secondary"></ion-icon>
+          <p>
+            {{item.clock}}
+          </p>
+        </div>
+      </div>
+      <div class="rightdetail">
+        <div id="buttonwrap">
+          <button ion-button block outline (click)="openMessagePicker()">Chat</button>
+        </div>
+      </div>
     </div>
   </div>
 </ion-list>
+</div>
 </ion-content>
