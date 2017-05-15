@@ -28,10 +28,11 @@ export class IntroPage {
 // Skips the facebook oath and jumps to Home page
 // Use this login for DEVELOPMENT ONLY!
 // Call this from login()
-/*login(){
-  let nav = this.navCtrl;
-  nav.setRoot(TabsPage);
-}*/
+
+// login(){
+//   let nav = this.navCtrl;
+//   nav.setRoot(TabsPage);
+// }
 
 // Logins to facebook and receive the toekn.
 // Use this when deploying.

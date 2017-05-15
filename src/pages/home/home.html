@@ -67,9 +67,8 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <div id = 'blank'>
-    </div>
+  <div class="wheeloPosts">
+  <ion-list class="single">
   <div id='post' *ngFor="let item of items">
     <div id='profilepic'>
       <img align="center" src="https://s-media-cache-ak0.pinimg.com/originals/57/43/47/574347ddf6be999e0027de121104f2ff.png">
@@ -79,6 +78,7 @@
         <p class="locationlabel">
         From here {{item.locationfrom}}
         </p>
+        <ion-icon class="icon_arrowForward black icon sq24"></ion-icon>
         <p class="locationlabel">
         To here location {{item.locationto}}
         </p>
@@ -97,11 +97,11 @@
           John Doe
         </div>
         <div id="calender">
-          <img scr="img/iconCal.png">
+          <ion-icon class="icon_cal dark icon sq16 secondary"></ion-icon>
           <p>
             {{item.date}}
           </p>
-          <img scr="img/iconClock.png">
+          <ion-icon class="icon_clock dark icon sq16 secondary"></ion-icon>
           <p>
             {{item.clock}}
           </p>
@@ -115,4 +115,5 @@
     </div>
   </div>
 </ion-list>
+</div>
 </ion-content>

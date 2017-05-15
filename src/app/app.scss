@@ -199,6 +199,10 @@ button[color="frost"].activated {
   position: absolute;
 }
 
+.wheeloPosts {
+  padding-top: 76px;
+}
+
 // ==================================================Iconography====================================================//
 // ***********************************************Tabs*************************************************//
 .tab-button-icon {
@@ -229,6 +233,11 @@ button[color="frost"].activated {
 }
 
 // ***********************************************General*************************************************//
+.icon.sq16 {
+  width: 16px;
+  height: 16px;
+}
+
 .icon.sq24 {
   width: 24px;
   height: 24px;
@@ -241,6 +250,31 @@ button[color="frost"].activated {
   background-image: url('../assets/icons/icon_cross_dark.svg') !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
+}
+.icon.icon_cal.dark {
+  background-image: url('../assets/icons/icon_cal_dark.svg') !important;
+  background-size: 100% 100%;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+}
+
+.icon.icon_clock.dark {
+  background-image: url('../assets/icons/icon_clock_dark.svg') !important;
+  background-size: 100% 100%;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+}
+
+
+.icon.icon_arrowForward.black {
+  background-image: url('../assets/icons/icon_arrowForward_black.svg') !important;
+  background-size: 100% 100%;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+}
+
+.secondary {
+  opacity: 0.64;
 }
 
 // ==================================================Cells====================================================//
